@@ -1,0 +1,986 @@
+{
+    "罗恩·韦斯莱": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "光辉",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_xiaoluoen.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_06.png",
+        "魔力url": ""
+    },
+    "阿不思·邓布利多": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "光辉",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_dengbuliduo.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_06.png",
+        "魔力url": ""
+    },
+    "小赫敏·格兰杰": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "光辉",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_xiaohemin.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_06.png",
+        "魔力url": ""
+    },
+    "呼神护卫": {
+        "魔力消耗": 3,
+        "类型": "咒语卡",
+        "品质": "光辉",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_hushenhuwei_02.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_06.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "西弗勒斯·斯内普": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "光辉",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_snape.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_06.png",
+        "魔力url": ""
+    },
+    "多比": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "光辉",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_duobi.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_06.png",
+        "魔力url": ""
+    },
+    "古卜莱仙火": {
+        "魔力消耗": 4,
+        "类型": "咒语卡",
+        "品质": "光辉",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_gubulaixianhuo.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_06.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "万咒皆终": {
+        "魔力消耗": 3,
+        "类型": "咒语卡",
+        "品质": "光辉",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_1189.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_06.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "小哈利·波特": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "光辉",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_xiaohali.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_06.png",
+        "魔力url": ""
+    },
+    "默默然": {
+        "魔力消耗": 5,
+        "类型": "咒语卡",
+        "品质": "禁忌",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_obscurus.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_05.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "摧心咒": {
+        "魔力消耗": 5,
+        "类型": "咒语卡",
+        "品质": "禁忌",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_zuanxinwangu.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_05.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "阿瓦达": {
+        "魔力消耗": 6,
+        "类型": "咒语卡",
+        "品质": "禁忌",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_awadasuoming.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_05.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b6.png"
+    },
+    "阿兹卡班": {
+        "魔力消耗": 7,
+        "类型": "咒语卡",
+        "品质": "禁忌",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_azikaban.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_05.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b7.png"
+    },
+    "闪电风暴": {
+        "魔力消耗": 6,
+        "类型": "咒语卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_shandianfengbao.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_04.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b6.png"
+    },
+    "巨乌贼": {
+        "魔力消耗": 8,
+        "类型": "召唤卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_juwuzei.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_04.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b8.png"
+    },
+    "厉火": {
+        "魔力消耗": 7,
+        "类型": "召唤卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_lihuo.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_04.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b7.png"
+    },
+    "挪威脊背龙蛋": {
+        "魔力消耗": 7,
+        "类型": "召唤卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_longdan.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_04.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b7.png"
+    },
+    "澳洲蛋白眼幼龙": {
+        "魔力消耗": 6,
+        "类型": "召唤卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_aozhoudanbaiyanlongbaobao.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_04.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b6.png"
+    },
+    "哈利·波特": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_halibote.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_04.png",
+        "魔力url": ""
+    },
+    "米勒娃·麦格": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_maige.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_04.png",
+        "魔力url": ""
+    },
+    "赫敏·格兰杰": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_hemin.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_04.png",
+        "魔力url": ""
+    },
+    "凤凰": {
+        "魔力消耗": 7,
+        "类型": "召唤卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_fenghuang.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_04.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b7.png"
+    },
+    "水牢": {
+        "魔力消耗": 6,
+        "类型": "咒语卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_shuilao.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_04.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b6.png"
+    },
+    "火盾护身": {
+        "魔力消耗": 5,
+        "类型": "咒语卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_huodunhushen.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_04.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "金色飞贼": {
+        "魔力消耗": 5,
+        "类型": "召唤卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_jinsefeizei.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_04.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "马尔福三人组": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_xiaomaerfu.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_04.png",
+        "魔力url": ""
+    },
+    "卢娜·洛夫古德": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_luna.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_04.png",
+        "魔力url": ""
+    },
+    "石礅出动": {
+        "魔力消耗": 6,
+        "类型": "召唤卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_shidunchudong.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_04.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b6.png"
+    },
+    "马形水怪": {
+        "魔力消耗": 6,
+        "类型": "召唤卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_maxingshuiguai.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_04.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b6.png"
+    },
+    "神奇生物手提箱": {
+        "魔力消耗": 4,
+        "类型": "召唤卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_niutexiangzi.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_04.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "幽灵骑士团": {
+        "魔力消耗": 5,
+        "类型": "咒语卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_1175.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_04.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "驺吾": {
+        "魔力消耗": 7,
+        "类型": "咒语卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_1990.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_04.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b7.png"
+    },
+    "中国火球幼龙": {
+        "魔力消耗": 5,
+        "类型": "召唤卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_zhongguohuoqiulong.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_04.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "标准咒语书": {
+        "魔力消耗": 2,
+        "类型": "咒语卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_tushuguanchoukashu.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_04.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b2.png"
+    },
+    "诗翁彼豆故事集": {
+        "魔力消耗": 2,
+        "类型": "咒语卡",
+        "品质": "传说",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_1188.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_04.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b2.png"
+    },
+    "三头犬宝宝": {
+        "魔力消耗": 14,
+        "类型": "召唤卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_quanyimosantouquanbaobao.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b14.png"
+    },
+    "韦斯莱烟花": {
+        "魔力消耗": 7,
+        "类型": "咒语卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_weisilaiyanhuo.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b7.png"
+    },
+    "三本妖怪书": {
+        "魔力消耗": 7,
+        "类型": "召唤卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_sanbenyaoguaishu.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b7.png"
+    },
+    "时间转换器": {
+        "魔力消耗": 5,
+        "类型": "咒语卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_shijianzhuanhuanqi.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "甜点大师": {
+        "魔力消耗": 5,
+        "类型": "召唤卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_tianpindashi.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "摄神取念": {
+        "魔力消耗": 4,
+        "类型": "咒语卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_sheshenqunian.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "火焰熊熊": {
+        "魔力消耗": 4,
+        "类型": "咒语卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_huoyanxiongxiong.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "飞来咒": {
+        "魔力消耗": 4,
+        "类型": "咒语卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_feilaizhou.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "神锋无影": {
+        "魔力消耗": 4,
+        "类型": "咒语卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_shenfengwuying.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "特波疣猪": {
+        "魔力消耗": 4,
+        "类型": "咒语卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_teboyouzhu.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "鸟蛇": {
+        "魔力消耗": 4,
+        "类型": "召唤卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_niaoshe.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "火灰蛇": {
+        "魔力消耗": 3,
+        "类型": "召唤卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_huohuishe.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "把戏坊烟花盒": {
+        "魔力消耗": 3,
+        "类型": "召唤卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_weisilaiyanhuahe.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "狼牙飞碟": {
+        "魔力消耗": 3,
+        "类型": "咒语卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_langyafeipan.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "除你武器": {
+        "魔力消耗": 3,
+        "类型": "咒语卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_chuniwuqi.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "格洛普": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_geluopu.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_03.png",
+        "魔力url": ""
+    },
+    "闪回咒": {
+        "魔力消耗": 0,
+        "类型": "咒语卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_shanhuizhou.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b0.png"
+    },
+    "卡珊德拉·沃雷": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_kasangdela.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_03.png",
+        "魔力url": ""
+    },
+    "洛蒂·特纳": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_luodi.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_03.png",
+        "魔力url": ""
+    },
+    "鲁伯·海格": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_haige.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_03.png",
+        "魔力url": ""
+    },
+    "多重冰冻咒": {
+        "魔力消耗": 6,
+        "类型": "咒语卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_duochongbingdongzhou.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b6.png"
+    },
+    "独角兽": {
+        "魔力消耗": 5,
+        "类型": "召唤卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_dujiaoshou_01.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "霹雳爆炸": {
+        "魔力消耗": 5,
+        "类型": "咒语卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_1031.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "游走球": {
+        "魔力消耗": 4,
+        "类型": "咒语卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_youzouqiu.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "雷鸟": {
+        "魔力消耗": 4,
+        "类型": "召唤卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_leiniao.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "飓风咒": {
+        "魔力消耗": 4,
+        "类型": "咒语卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_jufengzhou.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "蜷翼魔": {
+        "魔力消耗": 4,
+        "类型": "召唤卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_quanyimo.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "摇摆蝎尾兽": {
+        "魔力消耗": 3,
+        "类型": "召唤卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_shiweixie.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "欣克庞克": {
+        "魔力消耗": 3,
+        "类型": "召唤卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_xinkepangke.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "漂浮炸弹": {
+        "魔力消耗": 3,
+        "类型": "召唤卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_qiqiuzhadan.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "变形咒": {
+        "魔力消耗": 2,
+        "类型": "咒语卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_bianxingzhou.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b2.png"
+    },
+    "嗅嗅": {
+        "魔力消耗": 2,
+        "类型": "召唤卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_1166.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b2.png"
+    },
+    "雪人飞来": {
+        "魔力消耗": 2,
+        "类型": "召唤卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_xueren.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b2.png"
+    },
+    "弗雷兄弟": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_fuleixiongdi.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_03.png",
+        "魔力url": ""
+    },
+    "阿比盖尔·格雷": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_abigaier.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_03.png",
+        "魔力url": ""
+    },
+    "艾薇·沃林顿": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_aiwei.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_03.png",
+        "魔力url": ""
+    },
+    "隐形兽": {
+        "魔力消耗": 6,
+        "类型": "召唤卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_yinxingshou.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b6.png"
+    },
+    "食死徒": {
+        "魔力消耗": 5,
+        "类型": "召唤卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_1187.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "预言水晶球": {
+        "魔力消耗": 4,
+        "类型": "咒语卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_shuijingqiu.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "高布石": {
+        "魔力消耗": 3,
+        "类型": "咒语卡",
+        "品质": "史诗",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_gaobushi.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_03.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "火螃蟹": {
+        "魔力消耗": 5,
+        "类型": "召唤卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_huopangxie.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "犀角兽": {
+        "魔力消耗": 5,
+        "类型": "召唤卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_dujiaoshou_02.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "冰冻咒": {
+        "魔力消耗": 5,
+        "类型": "咒语卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_bingdongzhou.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "气象咒": {
+        "魔力消耗": 4,
+        "类型": "咒语卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_tianqizhou.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "雪球咒": {
+        "魔力消耗": 3,
+        "类型": "咒语卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_xueqiuzhou.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "飞沙走石": {
+        "魔力消耗": 2,
+        "类型": "咒语卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_feishazoushi.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b2.png"
+    },
+    "飞天扫帚": {
+        "魔力消耗": 2,
+        "类型": "咒语卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_guanglun2000.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b2.png"
+    },
+    "云雾缥缈": {
+        "魔力消耗": 2,
+        "类型": "咒语卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_yunwupiaomiao.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b2.png"
+    },
+    "丹尼尔·佩杰": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_dannier.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_02.png",
+        "魔力url": ""
+    },
+    "凯文·法雷尔": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_kaiwen.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_02.png",
+        "魔力url": ""
+    },
+    "炸尾螺": {
+        "魔力消耗": 16,
+        "类型": "召唤卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_zhaweiluo.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b16.png"
+    },
+    "恶婆鸟": {
+        "魔力消耗": 5,
+        "类型": "召唤卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_eponiao.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "打人柳": {
+        "魔力消耗": 5,
+        "类型": "召唤卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_darenliu.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "巨怪": {
+        "魔力消耗": 5,
+        "类型": "召唤卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_shanguai.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "清水如泉": {
+        "魔力消耗": 5,
+        "类型": "咒语卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_qingshuiruquan.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "八眼蜘蛛巢穴": {
+        "魔力消耗": 5,
+        "类型": "召唤卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_zhizhuchaoxue.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "棋子士兵": {
+        "魔力消耗": 5,
+        "类型": "召唤卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_wushiqi.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "灵猫": {
+        "魔力消耗": 4,
+        "类型": "召唤卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_madagemao.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "充气咒": {
+        "魔力消耗": 3,
+        "类型": "咒语卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_quanyimopengzhangzhou.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "盔甲护身": {
+        "魔力消耗": 3,
+        "类型": "咒语卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_kuijiahushen.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "愈合如初": {
+        "魔力消耗": 3,
+        "类型": "咒语卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_yuheruchu.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "妖怪们的妖怪书": {
+        "魔力消耗": 3,
+        "类型": "召唤卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_yaoguaimendeyaoguaishu.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "随从显形": {
+        "魔力消耗": 3,
+        "类型": "咒语卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_suicongxianxing.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "萝宾·西斯尔思韦特": {
+        "魔力消耗": "",
+        "类型": "伙伴卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_luobin.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_huobankuang_02.png",
+        "魔力url": ""
+    },
+    "记忆瓶": {
+        "魔力消耗": 5,
+        "类型": "召唤卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_1183.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "雪怪": {
+        "魔力消耗": 5,
+        "类型": "召唤卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_yeti.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "月痴兽": {
+        "魔力消耗": 4,
+        "类型": "召唤卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_yuechishou.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "混淆咒": {
+        "魔力消耗": 2,
+        "类型": "咒语卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_1184.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b2.png"
+    },
+    "咒语大全": {
+        "魔力消耗": 2,
+        "类型": "召唤卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_1191.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b2.png"
+    },
+    "消失柜": {
+        "魔力消耗": 2,
+        "类型": "召唤卡",
+        "品质": "稀有",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_xiaoshigui.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_02.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b2.png"
+    },
+    "万弹齐发": {
+        "魔力消耗": 2,
+        "类型": "咒语卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_wandanqifa.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b2.png"
+    },
+    "统统加护": {
+        "魔力消耗": 5,
+        "类型": "咒语卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_tongtongjiahu.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "昏昏倒地": {
+        "魔力消耗": 3,
+        "类型": "咒语卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_hunhundaodi.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "速速禁锢": {
+        "魔力消耗": 3,
+        "类型": "咒语卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_susujingu.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "带翼弹弓": {
+        "魔力消耗": 5,
+        "类型": "召唤卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_daiyidangong.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b5.png"
+    },
+    "八眼巨蛛的毒液": {
+        "魔力消耗": 4,
+        "类型": "咒语卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_bayanjuzhudeduye.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "吼叫信": {
+        "魔力消耗": 4,
+        "类型": "咒语卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_tezhipaoxiaoxin.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "白鲜香精": {
+        "魔力消耗": 3,
+        "类型": "咒语卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_baixianjinghua.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "康沃尔郡小精灵": {
+        "魔力消耗": 3,
+        "类型": "召唤卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_kangwoerjunxiaojingling.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "马人": {
+        "魔力消耗": 3,
+        "类型": "召唤卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_banrenma.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "小蜘蛛群": {
+        "魔力消耗": 3,
+        "类型": "召唤卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_xiaozhizhuqun.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "肿胀药水": {
+        "魔力消耗": 2,
+        "类型": "咒语卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_fangdayaoshui.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b2.png"
+    },
+    "门钥匙": {
+        "魔力消耗": 2,
+        "类型": "咒语卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_menyaoshi.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b2.png"
+    },
+    "全速击退": {
+        "魔力消耗": 3,
+        "类型": "咒语卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_quansujidao.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "莫特拉鼠": {
+        "魔力消耗": 3,
+        "类型": "召唤卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_1185.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "统统归来": {
+        "魔力消耗": 3,
+        "类型": "咒语卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_tongtongfeilai.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    },
+    "魔法跳跳糖": {
+        "魔力消耗": 4,
+        "类型": "咒语卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_mofatiaotiaotang.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_fashukuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b4.png"
+    },
+    "整蛊礼物盒": {
+        "魔力消耗": 3,
+        "类型": "召唤卡",
+        "品质": "普通",
+        "卡片url": "https://cbg-hp.res.netease.com/game_res/image/skill_card_small/card_zhengguliwuhe.png",
+        "框url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_zhuchangkuang_01.png",
+        "魔力url": "https://cbg-hp.res.netease.com/game_res/unpack_res/cbg/others/pic_card_num_b3.png"
+    }
+}

@@ -36,3 +36,5 @@ frida -U -l harrypotter_ui.js -f com.netease.harrypotter
 ```
 
 直接使用 frida 启动它。
+
+魔杖、猫头鹰在 "E:\download\111\com.netease.harrypotter\files\Netease\harrypotter\Documents\res\model\items.npk" 里。

@@ -2,10 +2,12 @@ Java.perform(function() {
     // 获取 ActivityThread 实例
     var ActivityThread = Java.use('android.app.ActivityThread');
     var currentActivityThread = ActivityThread.currentActivityThread();
+    // console.log(currentActivityThread);
     
     // 获取 mActivities 字段（一个 ArrayMap）
     var mActivities = currentActivityThread.mActivities.value;
-    
+
+    console.log(mActivities);
     // 遍历 mActivities 找到最顶层的 Activity
     var iterator = mActivities.values().iterator();
     while (iterator.hasNext()) {

@@ -1,0 +1,3154 @@
+[
+  {
+    "type": "swipe",
+    "frame": 126,
+    "start_frame": 126,
+    "end_frame": 134,
+    "points": [
+      [
+        645,
+        169
+      ],
+      [
+        697,
+        206
+      ],
+      [
+        759,
+        242
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 145,
+    "start_frame": 145,
+    "end_frame": 152,
+    "points": [
+      [
+        640,
+        343
+      ],
+      [
+        574,
+        377
+      ],
+      [
+        517,
+        421
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 164,
+    "start_frame": 164,
+    "end_frame": 172,
+    "points": [
+      [
+        642,
+        490
+      ],
+      [
+        703,
+        533
+      ],
+      [
+        758,
+        568
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 174,
+    "pos": [
+      890,
+      456
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 180,
+    "pos": [
+      389,
+      380
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 186,
+    "pos": [
+      773,
+      264
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 192,
+    "pos": [
+      505,
+      207
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 196,
+    "pos": [
+      636,
+      173
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 223,
+    "pos": [
+      912,
+      188
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 232,
+    "pos": [
+      771,
+      285
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 247,
+    "pos": [
+      559,
+      377
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 254,
+    "pos": [
+      448,
+      459
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 265,
+    "pos": [
+      716,
+      531
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 277,
+    "pos": [
+      983,
+      455
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 277,
+    "pos": [
+      291,
+      456
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 290,
+    "pos": [
+      542,
+      337
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 290,
+    "pos": [
+      732,
+      342
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 296,
+    "pos": [
+      851,
+      249
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 304,
+    "start_frame": 304,
+    "end_frame": 308,
+    "points": [
+      [
+        436,
+        168
+      ],
+      [
+        309,
+        243
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 312,
+    "pos": [
+      947,
+      378
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 312,
+    "pos": [
+      326,
+      382
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 320,
+    "pos": [
+      368,
+      527
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 328,
+    "pos": [
+      500,
+      435
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 344,
+    "pos": [
+      714,
+      338
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 350,
+    "pos": [
+      830,
+      265
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 363,
+    "pos": [
+      964,
+      170
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 375,
+    "pos": [
+      1062,
+      268
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 375,
+    "pos": [
+      216,
+      262
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 387,
+    "pos": [
+      369,
+      338
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 387,
+    "pos": [
+      906,
+      340
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 399,
+    "pos": [
+      753,
+      416
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 399,
+    "pos": [
+      520,
+      418
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 411,
+    "pos": [
+      867,
+      537
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 411,
+    "pos": [
+      408,
+      530
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 417,
+    "pos": [
+      1004,
+      420
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 425,
+    "pos": [
+      885,
+      340
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 441,
+    "pos": [
+      697,
+      270
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 448,
+    "pos": [
+      559,
+      205
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 460,
+    "pos": [
+      410,
+      151
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 472,
+    "pos": [
+      999,
+      242
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 472,
+    "pos": [
+      267,
+      242
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 484,
+    "pos": [
+      813,
+      317
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 484,
+    "pos": [
+      460,
+      318
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 490,
+    "pos": [
+      556,
+      420
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 499,
+    "start_frame": 499,
+    "end_frame": 502,
+    "points": [
+      [
+        736,
+        496
+      ],
+      [
+        859,
+        549
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 506,
+    "pos": [
+      1002,
+      477
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 506,
+    "pos": [
+      271,
+      478
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 516,
+    "start_frame": 516,
+    "end_frame": 526,
+    "points": [
+      [
+        810,
+        382
+      ],
+      [
+        872,
+        320
+      ],
+      [
+        873,
+        242
+      ],
+      [
+        803,
+        185
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 535,
+    "start_frame": 535,
+    "end_frame": 544,
+    "points": [
+      [
+        465,
+        149
+      ],
+      [
+        414,
+        206
+      ],
+      [
+        411,
+        284
+      ],
+      [
+        460,
+        343
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 553,
+    "start_frame": 553,
+    "end_frame": 562,
+    "points": [
+      [
+        809,
+        378
+      ],
+      [
+        875,
+        435
+      ],
+      [
+        878,
+        520
+      ],
+      [
+        812,
+        572
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 570,
+    "start_frame": 570,
+    "end_frame": 580,
+    "points": [
+      [
+        467,
+        491
+      ],
+      [
+        404,
+        440
+      ],
+      [
+        404,
+        356
+      ],
+      [
+        464,
+        304
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 589,
+    "start_frame": 589,
+    "end_frame": 604,
+    "points": [
+      [
+        642,
+        170
+      ],
+      [
+        642,
+        244
+      ],
+      [
+        644,
+        320
+      ],
+      [
+        637,
+        390
+      ],
+      [
+        640,
+        478
+      ],
+      [
+        640,
+        556
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 620,
+    "start_frame": 620,
+    "end_frame": 626,
+    "points": [
+      [
+        387,
+        511
+      ],
+      [
+        383,
+        445
+      ],
+      [
+        389,
+        381
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 631,
+    "start_frame": 631,
+    "end_frame": 638,
+    "points": [
+      [
+        886,
+        326
+      ],
+      [
+        884,
+        251
+      ],
+      [
+        887,
+        184
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 641,
+    "pos": [
+      720,
+      169
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 648,
+    "pos": [
+      567,
+      264
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 654,
+    "pos": [
+      716,
+      360
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 666,
+    "pos": [
+      555,
+      492
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 672,
+    "pos": [
+      714,
+      554
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 684,
+    "pos": [
+      850,
+      482
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 684,
+    "pos": [
+      425,
+      482
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 693,
+    "start_frame": 693,
+    "end_frame": 700,
+    "points": [
+      [
+        973,
+        402
+      ],
+      [
+        1059,
+        322
+      ],
+      [
+        953,
+        227
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 702,
+    "pos": [
+      851,
+      167
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 702,
+    "pos": [
+      428,
+      168
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 717,
+    "start_frame": 717,
+    "end_frame": 723,
+    "points": [
+      [
+        500,
+        556
+      ],
+      [
+        507,
+        494
+      ],
+      [
+        506,
+        411
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 729,
+    "start_frame": 729,
+    "end_frame": 736,
+    "points": [
+      [
+        769,
+        359
+      ],
+      [
+        774,
+        281
+      ],
+      [
+        770,
+        203
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 739,
+    "pos": [
+      408,
+      171
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 745,
+    "pos": [
+      525,
+      238
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 751,
+    "pos": [
+      412,
+      339
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 763,
+    "pos": [
+      752,
+      441
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 769,
+    "pos": [
+      869,
+      538
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 781,
+    "pos": [
+      773,
+      437
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 781,
+    "pos": [
+      499,
+      435
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 790,
+    "start_frame": 790,
+    "end_frame": 798,
+    "points": [
+      [
+        386,
+        380
+      ],
+      [
+        291,
+        281
+      ],
+      [
+        385,
+        205
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 800,
+    "pos": [
+      737,
+      170
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 800,
+    "pos": [
+      546,
+      170
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 814,
+    "start_frame": 814,
+    "end_frame": 821,
+    "points": [
+      [
+        909,
+        229
+      ],
+      [
+        904,
+        289
+      ],
+      [
+        907,
+        346
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 826,
+    "start_frame": 826,
+    "end_frame": 833,
+    "points": [
+      [
+        371,
+        381
+      ],
+      [
+        367,
+        438
+      ],
+      [
+        367,
+        504
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 836,
+    "pos": [
+      774,
+      551
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 842,
+    "pos": [
+      889,
+      466
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 848,
+    "pos": [
+      768,
+      402
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 861,
+    "pos": [
+      503,
+      321
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 866,
+    "pos": [
+      386,
+      245
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 903,
+    "pos": [
+      747,
+      185
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 903,
+    "pos": [
+      523,
+      190
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 909,
+    "pos": [
+      752,
+      295
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 909,
+    "pos": [
+      520,
+      304
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 921,
+    "pos": [
+      907,
+      365
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 921,
+    "pos": [
+      373,
+      355
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 927,
+    "pos": [
+      906,
+      474
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 927,
+    "pos": [
+      367,
+      472
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 940,
+    "pos": [
+      1066,
+      556
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 940,
+    "pos": [
+      218,
+      556
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 945,
+    "pos": [
+      216,
+      443
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 945,
+    "pos": [
+      1056,
+      442
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 959,
+    "start_frame": 959,
+    "end_frame": 964,
+    "points": [
+      [
+        322,
+        328
+      ],
+      [
+        368,
+        269
+      ],
+      [
+        414,
+        202
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 972,
+    "start_frame": 972,
+    "end_frame": 978,
+    "points": [
+      [
+        849,
+        174
+      ],
+      [
+        885,
+        225
+      ],
+      [
+        927,
+        291
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 984,
+    "start_frame": 984,
+    "end_frame": 1072,
+    "points": [
+      [
+        556,
+        342
+      ],
+      [
+        522,
+        405
+      ],
+      [
+        472,
+        462
+      ],
+      [
+        366,
+        170
+      ],
+      [
+        463,
+        258
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1000,
+    "pos": [
+      952,
+      532
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1000,
+    "pos": [
+      326,
+      536
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1004,
+    "pos": [
+      333,
+      419
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1004,
+    "pos": [
+      945,
+      414
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1018,
+    "pos": [
+      949,
+      265
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1018,
+    "pos": [
+      333,
+      261
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1021,
+    "pos": [
+      330,
+      145
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1021,
+    "pos": [
+      944,
+      144
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1037,
+    "pos": [
+      776,
+      285
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1037,
+    "pos": [
+      504,
+      283
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1039,
+    "pos": [
+      502,
+      400
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1039,
+    "pos": [
+      774,
+      404
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1048,
+    "pos": [
+      905,
+      513
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1048,
+    "pos": [
+      363,
+      511
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1055,
+    "pos": [
+      1021,
+      429
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1055,
+    "pos": [
+      251,
+      418
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1061,
+    "pos": [
+      1023,
+      287
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1061,
+    "pos": [
+      249,
+      284
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 1069,
+    "start_frame": 1069,
+    "end_frame": 1072,
+    "points": [
+      [
+        912,
+        166
+      ],
+      [
+        809,
+        262
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1097,
+    "pos": [
+      751,
+      550
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1097,
+    "pos": [
+      520,
+      556
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1121,
+    "pos": [
+      910,
+      423
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1121,
+    "pos": [
+      362,
+      415
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1128,
+    "pos": [
+      1020,
+      319
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1128,
+    "pos": [
+      294,
+      321
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 1154,
+    "start_frame": 1154,
+    "end_frame": 1157,
+    "points": [
+      [
+        482,
+        184
+      ],
+      [
+        427,
+        251
+      ],
+      [
+        486,
+        340
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 1165,
+    "start_frame": 1165,
+    "end_frame": 1172,
+    "points": [
+      [
+        790,
+        376
+      ],
+      [
+        851,
+        453
+      ],
+      [
+        790,
+        531
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1176,
+    "pos": [
+      642,
+      559
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1182,
+    "pos": [
+      636,
+      413
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1188,
+    "pos": [
+      641,
+      277
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1194,
+    "pos": [
+      770,
+      187
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1194,
+    "pos": [
+      503,
+      186
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1219,
+    "pos": [
+      928,
+      343
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1219,
+    "pos": [
+      354,
+      338
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1224,
+    "pos": [
+      1015,
+      453
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1224,
+    "pos": [
+      258,
+      453
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1250,
+    "pos": [
+      776,
+      554
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1250,
+    "pos": [
+      507,
+      546
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1255,
+    "pos": [
+      872,
+      430
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1255,
+    "pos": [
+      397,
+      440
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1261,
+    "pos": [
+      771,
+      348
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1261,
+    "pos": [
+      501,
+      338
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1267,
+    "pos": [
+      767,
+      204
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1267,
+    "pos": [
+      498,
+      207
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1273,
+    "pos": [
+      930,
+      171
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1273,
+    "pos": [
+      342,
+      174
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1279,
+    "pos": [
+      1034,
+      285
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1279,
+    "pos": [
+      241,
+      279
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1285,
+    "pos": [
+      932,
+      396
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1285,
+    "pos": [
+      350,
+      397
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1292,
+    "pos": [
+      747,
+      550
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1292,
+    "pos": [
+      528,
+      541
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1315,
+    "pos": [
+      912,
+      417
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1315,
+    "pos": [
+      371,
+      416
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1322,
+    "pos": [
+      1031,
+      318
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1322,
+    "pos": [
+      287,
+      323
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 1348,
+    "start_frame": 1348,
+    "end_frame": 1355,
+    "points": [
+      [
+        489,
+        198
+      ],
+      [
+        431,
+        267
+      ],
+      [
+        484,
+        346
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 1360,
+    "start_frame": 1360,
+    "end_frame": 1367,
+    "points": [
+      [
+        790,
+        372
+      ],
+      [
+        851,
+        464
+      ],
+      [
+        790,
+        535
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1371,
+    "pos": [
+      645,
+      544
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1377,
+    "pos": [
+      632,
+      424
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1383,
+    "pos": [
+      639,
+      282
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1389,
+    "pos": [
+      926,
+      186
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1389,
+    "pos": [
+      356,
+      185
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1392,
+    "pos": [
+      1005,
+      264
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1392,
+    "pos": [
+      271,
+      263
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1407,
+    "pos": [
+      924,
+      443
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1407,
+    "pos": [
+      355,
+      443
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1411,
+    "pos": [
+      852,
+      520
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1411,
+    "pos": [
+      430,
+      514
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1425,
+    "pos": [
+      740,
+      402
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1425,
+    "pos": [
+      541,
+      392
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1428,
+    "pos": [
+      739,
+      290
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1428,
+    "pos": [
+      540,
+      280
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1437,
+    "pos": [
+      925,
+      193
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1437,
+    "pos": [
+      347,
+      188
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1440,
+    "pos": [
+      993,
+      266
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1440,
+    "pos": [
+      275,
+      260
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1456,
+    "pos": [
+      917,
+      442
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1456,
+    "pos": [
+      347,
+      444
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1459,
+    "pos": [
+      430,
+      513
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1459,
+    "pos": [
+      854,
+      512
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1473,
+    "pos": [
+      736,
+      398
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1473,
+    "pos": [
+      538,
+      409
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1476,
+    "pos": [
+      538,
+      288
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1476,
+    "pos": [
+      734,
+      294
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1486,
+    "pos": [
+      923,
+      185
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1486,
+    "pos": [
+      353,
+      192
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1489,
+    "pos": [
+      271,
+      266
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1489,
+    "pos": [
+      992,
+      266
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1505,
+    "pos": [
+      352,
+      432
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1505,
+    "pos": [
+      932,
+      439
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1508,
+    "pos": [
+      848,
+      518
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1508,
+    "pos": [
+      425,
+      519
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1523,
+    "pos": [
+      542,
+      398
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1523,
+    "pos": [
+      732,
+      402
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1525,
+    "pos": [
+      547,
+      286
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1525,
+    "pos": [
+      736,
+      291
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1534,
+    "pos": [
+      923,
+      188
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1534,
+    "pos": [
+      348,
+      189
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1537,
+    "pos": [
+      281,
+      262
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1537,
+    "pos": [
+      999,
+      267
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1552,
+    "pos": [
+      354,
+      440
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1552,
+    "pos": [
+      932,
+      442
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1555,
+    "pos": [
+      430,
+      514
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1555,
+    "pos": [
+      850,
+      522
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1571,
+    "pos": [
+      733,
+      401
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1571,
+    "pos": [
+      538,
+      400
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1574,
+    "pos": [
+      541,
+      287
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1574,
+    "pos": [
+      736,
+      292
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1583,
+    "pos": [
+      922,
+      185
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1583,
+    "pos": [
+      346,
+      189
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1586,
+    "pos": [
+      270,
+      269
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1586,
+    "pos": [
+      1002,
+      266
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1601,
+    "pos": [
+      347,
+      433
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1601,
+    "pos": [
+      925,
+      438
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1604,
+    "pos": [
+      857,
+      520
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1604,
+    "pos": [
+      434,
+      518
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1620,
+    "pos": [
+      541,
+      394
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1620,
+    "pos": [
+      728,
+      397
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1622,
+    "pos": [
+      545,
+      292
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1622,
+    "pos": [
+      732,
+      282
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1632,
+    "pos": [
+      982,
+      183
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 1638,
+    "start_frame": 1638,
+    "end_frame": 1642,
+    "points": [
+      [
+        982,
+        288
+      ],
+      [
+        979,
+        405
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1649,
+    "pos": [
+      811,
+      560
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 1658,
+    "start_frame": 1658,
+    "end_frame": 1661,
+    "points": [
+      [
+        813,
+        432
+      ],
+      [
+        808,
+        318
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1668,
+    "pos": [
+      642,
+      165
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 1677,
+    "start_frame": 1677,
+    "end_frame": 1679,
+    "points": [
+      [
+        634,
+        279
+      ],
+      [
+        638,
+        395
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1728,
+    "pos": [
+      291,
+      168
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 1736,
+    "start_frame": 1736,
+    "end_frame": 1739,
+    "points": [
+      [
+        291,
+        283
+      ],
+      [
+        289,
+        392
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1747,
+    "pos": [
+      474,
+      561
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 1756,
+    "start_frame": 1756,
+    "end_frame": 1759,
+    "points": [
+      [
+        464,
+        433
+      ],
+      [
+        464,
+        326
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1766,
+    "pos": [
+      638,
+      169
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 1774,
+    "start_frame": 1774,
+    "end_frame": 1777,
+    "points": [
+      [
+        642,
+        284
+      ],
+      [
+        638,
+        399
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 1834,
+    "start_frame": 1834,
+    "end_frame": 1841,
+    "points": [
+      [
+        887,
+        511
+      ],
+      [
+        886,
+        448
+      ],
+      [
+        881,
+        383
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 1846,
+    "start_frame": 1846,
+    "end_frame": 1852,
+    "points": [
+      [
+        391,
+        322
+      ],
+      [
+        392,
+        262
+      ],
+      [
+        382,
+        185
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1856,
+    "pos": [
+      560,
+      170
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1862,
+    "pos": [
+      715,
+      273
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1869,
+    "pos": [
+      559,
+      358
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1881,
+    "pos": [
+      714,
+      500
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1886,
+    "pos": [
+      561,
+      551
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1899,
+    "pos": [
+      749,
+      168
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1899,
+    "pos": [
+      521,
+      174
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 1907,
+    "start_frame": 1907,
+    "end_frame": 1915,
+    "points": [
+      [
+        370,
+        210
+      ],
+      [
+        234,
+        285
+      ],
+      [
+        367,
+        354
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1917,
+    "pos": [
+      999,
+      474
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1917,
+    "pos": [
+      269,
+      475
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 1931,
+    "start_frame": 1931,
+    "end_frame": 1937,
+    "points": [
+      [
+        773,
+        561
+      ],
+      [
+        772,
+        492
+      ],
+      [
+        772,
+        418
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 1944,
+    "start_frame": 1944,
+    "end_frame": 1950,
+    "points": [
+      [
+        503,
+        369
+      ],
+      [
+        503,
+        271
+      ],
+      [
+        503,
+        196
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1954,
+    "pos": [
+      871,
+      162
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1960,
+    "pos": [
+      749,
+      239
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1966,
+    "pos": [
+      863,
+      344
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1978,
+    "pos": [
+      524,
+      441
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1984,
+    "pos": [
+      410,
+      536
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1996,
+    "pos": [
+      990,
+      438
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 1996,
+    "pos": [
+      286,
+      435
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 2005,
+    "start_frame": 2005,
+    "end_frame": 2013,
+    "points": [
+      [
+        853,
+        338
+      ],
+      [
+        962,
+        289
+      ],
+      [
+        848,
+        211
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2015,
+    "pos": [
+      539,
+      172
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2015,
+    "pos": [
+      733,
+      161
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 2029,
+    "start_frame": 2029,
+    "end_frame": 2035,
+    "points": [
+      [
+        372,
+        230
+      ],
+      [
+        366,
+        293
+      ],
+      [
+        365,
+        349
+      ]
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 2041,
+    "start_frame": 2041,
+    "end_frame": 2047,
+    "points": [
+      [
+        908,
+        382
+      ],
+      [
+        908,
+        442
+      ],
+      [
+        900,
+        504
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2051,
+    "pos": [
+      501,
+      554
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2057,
+    "pos": [
+      383,
+      476
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2062,
+    "pos": [
+      501,
+      390
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2075,
+    "pos": [
+      771,
+      324
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2081,
+    "pos": [
+      890,
+      243
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2118,
+    "pos": [
+      757,
+      263
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2118,
+    "pos": [
+      517,
+      259
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2120,
+    "pos": [
+      871,
+      258
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2120,
+    "pos": [
+      405,
+      263
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2136,
+    "pos": [
+      753,
+      416
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2136,
+    "pos": [
+      519,
+      417
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2139,
+    "pos": [
+      409,
+      420
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2139,
+    "pos": [
+      873,
+      416
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2154,
+    "pos": [
+      773,
+      209
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2154,
+    "pos": [
+      501,
+      209
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2157,
+    "pos": [
+      386,
+      205
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2157,
+    "pos": [
+      887,
+      209
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2166,
+    "pos": [
+      769,
+      454
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2166,
+    "pos": [
+      497,
+      459
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2169,
+    "pos": [
+      383,
+      461
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2169,
+    "pos": [
+      892,
+      462
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2184,
+    "pos": [
+      826,
+      165
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2184,
+    "pos": [
+      444,
+      164
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2187,
+    "pos": [
+      331,
+      175
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2187,
+    "pos": [
+      951,
+      169
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2202,
+    "pos": [
+      828,
+      491
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2202,
+    "pos": [
+      446,
+      493
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2206,
+    "pos": [
+      327,
+      496
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2206,
+    "pos": [
+      941,
+      498
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2214,
+    "pos": [
+      1059,
+      388
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2214,
+    "pos": [
+      217,
+      372
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2217,
+    "pos": [
+      301,
+      280
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2217,
+    "pos": [
+      990,
+      280
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2233,
+    "pos": [
+      854,
+      189
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2233,
+    "pos": [
+      422,
+      198
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2236,
+    "pos": [
+      770,
+      284
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2236,
+    "pos": [
+      508,
+      286
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2251,
+    "pos": [
+      765,
+      417
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2251,
+    "pos": [
+      502,
+      415
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2254,
+    "pos": [
+      427,
+      527
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2254,
+    "pos": [
+      845,
+      520
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2263,
+    "pos": [
+      1015,
+      454
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2263,
+    "pos": [
+      256,
+      465
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2266,
+    "pos": [
+      257,
+      344
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2266,
+    "pos": [
+      1017,
+      337
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2281,
+    "pos": [
+      912,
+      249
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2281,
+    "pos": [
+      366,
+      247
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2285,
+    "pos": [
+      466,
+      174
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2285,
+    "pos": [
+      808,
+      169
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2299,
+    "pos": [
+      733,
+      305
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2299,
+    "pos": [
+      540,
+      304
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2302,
+    "pos": [
+      478,
+      424
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2302,
+    "pos": [
+      790,
+      413
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2311,
+    "pos": [
+      944,
+      533
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2311,
+    "pos": [
+      323,
+      528
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2314,
+    "pos": [
+      247,
+      433
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2314,
+    "pos": [
+      1024,
+      437
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2330,
+    "pos": [
+      927,
+      310
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2330,
+    "pos": [
+      343,
+      299
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2333,
+    "pos": [
+      429,
+      210
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2333,
+    "pos": [
+      849,
+      216
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2348,
+    "pos": [
+      736,
+      321
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2348,
+    "pos": [
+      545,
+      316
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2351,
+    "pos": [
+      541,
+      441
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2351,
+    "pos": [
+      729,
+      441
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2360,
+    "pos": [
+      948,
+      520
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2360,
+    "pos": [
+      323,
+      513
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 2370,
+    "start_frame": 2370,
+    "end_frame": 2373,
+    "points": [
+      [
+        943,
+        400
+      ],
+      [
+        862,
+        300
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2378,
+    "pos": [
+      953,
+      191
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2378,
+    "pos": [
+      335,
+      192
+    ]
+  },
+  {
+    "type": "swipe",
+    "frame": 2387,
+    "start_frame": 2387,
+    "end_frame": 2390,
+    "points": [
+      [
+        330,
+        325
+      ],
+      [
+        400,
+        423
+      ]
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2398,
+    "pos": [
+      743,
+      467
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2398,
+    "pos": [
+      531,
+      478
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2407,
+    "pos": [
+      382,
+      531
+    ]
+  },
+  {
+    "type": "click",
+    "frame": 2407,
+    "pos": [
+      891,
+      527
+    ]
+  }
+]

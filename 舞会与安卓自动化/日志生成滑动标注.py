@@ -1,7 +1,7 @@
 import json
 import re
 
-log_file = "swipe_log.txt"
+log_file = "滑动标注日志.txt"
 output_json = "annotations.json"
 
 annotations = []

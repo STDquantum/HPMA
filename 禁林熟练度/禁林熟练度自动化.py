@@ -100,7 +100,7 @@ def main():
         succ += 1
         print(f'成功点击次数: {succ}')
         time.sleep(40)
-        if succ == 3000d:
+        if succ == 3000:
             sendToDingTalk()
             subprocess.run(['adb', "-s", "HJS0219110007202", 'shell', 'input', 'keyevent', '26'])
             exit()

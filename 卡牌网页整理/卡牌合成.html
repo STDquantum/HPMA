@@ -1,0 +1,998 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>卡牌收集</title><style>
+*{box-sizing:border-box}html{font-size:19.6px}body{margin:0;background:#f5f5f5;color:#1e1e1e;font-family:"PingFang SC","Microsoft Yahei","Heiti SC",miui,helvetica,sans-serif}
+.page{width:750px;margin:0 auto;background:#fff;min-height:100vh}.tabs{display:flex;height:67.2px;padding-left:14px;background:#fff}
+.filter{display:block;height:39.2px;margin:14px 14px 14px 0;padding:0 42px;border:0;background:#f5f5f5;color:#1e1e1e;font:inherit;font-size:16.8px;line-height:36.4px;cursor:pointer}.filter.on{background:#fff;color:#ff3a36}
+.collection-title{position:relative;height:50.4px;padding:15.4px 14px 11.2px 25.2px;background:#fff;font-size:19.6px;font-weight:700;line-height:19.6px}.collection-title:before{content:"";position:absolute;left:14px;top:11.2px;width:4px;height:28px;border-radius:2px;background:#ff3a36}
+.card-section{padding:0 14px 11.2px;background:#fff}.card-grid{display:grid;grid-template-columns:repeat(5,1fr);width:100%}.card-item{width:100%;min-width:0;margin:0 0 11.2px;padding:0 11.2px 0 0}.card-visual{position:relative;width:100%;aspect-ratio:135.438/194.688;margin:0 0 7px;overflow:visible}.card-art{position:absolute;z-index:1;left:4%;top:10%;width:92%;height:auto}.card-frame{position:absolute;z-index:2;inset:0;width:100%;height:auto}.card-mastery,.card-cost{position:absolute;z-index:3;height:auto}.card-mastery{left:-.2rem;top:0rem;width:.9rem}.card-cost{left:-.1rem;top:.65rem;width:.7rem}.card-name{display:flow-root;width:100%;min-height:42px;color:#1e1e1e;font-size:16.8px;line-height:21px;text-align:center;overflow-wrap:anywhere}@media(max-width:750px){.page{width:100%}}
+</style></head><body><main class="page"><nav class="tabs"><button class="filter on" data-filter="全部">全部</button><button class="filter" data-filter="咒语卡">咒语卡</button><button class="filter" data-filter="召唤卡">召唤卡</button><button class="filter" data-filter="伙伴卡">伙伴卡</button></nav>
+<div class="collection-title">卡牌收集进度：141/141</div><section class="card-section"><div class="card-grid"><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_xiaoluoen.png" alt="罗恩·韦斯莱">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E7%A5%9E%E8%AF%9D.png" alt="">
+          
+        </div>
+        <span class="card-name">罗恩·韦斯莱</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_xiaohali.png" alt="哈利·波特">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E7%A5%9E%E8%AF%9D.png" alt="">
+          
+        </div>
+        <span class="card-name">哈利·波特</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_snape.png" alt="西弗勒斯·斯内普">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E7%A5%9E%E8%AF%9D.png" alt="">
+          
+        </div>
+        <span class="card-name">西弗勒斯·斯内普</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_duobi.png" alt="多比">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E7%A5%9E%E8%AF%9D.png" alt="">
+          
+        </div>
+        <span class="card-name">多比</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_dengbuliduo.png" alt="阿不思·邓布利多">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E7%A5%9E%E8%AF%9D.png" alt="">
+          
+        </div>
+        <span class="card-name">阿不思·邓布利多</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_niute.png" alt="纽特·斯卡曼德">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E7%A5%9E%E8%AF%9D.png" alt="">
+          
+        </div>
+        <span class="card-name">纽特·斯卡曼德</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_xiaohemin.png" alt="赫敏·格兰杰">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E7%A5%9E%E8%AF%9D.png" alt="">
+          
+        </div>
+        <span class="card-name">赫敏·格兰杰</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_gubulaixianhuo.png" alt="古卜莱仙火">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A5%9E%E8%AF%9D.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">古卜莱仙火</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_1189.png" alt="万咒皆终">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A5%9E%E8%AF%9D.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">万咒皆终</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_hushenhuwei_02.png" alt="呼神护卫">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A5%9E%E8%AF%9D.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">呼神护卫</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_1198.png" alt="福灵剂">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A5%9E%E8%AF%9D.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">福灵剂</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_awadasuoming.png" alt="阿瓦达">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E9%AD%94%E6%B3%95.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_6.png" alt="">
+        </div>
+        <span class="card-name">阿瓦达</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_azikaban.png" alt="阿兹卡班">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E9%AD%94%E6%B3%95.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_7.png" alt="">
+        </div>
+        <span class="card-name">阿兹卡班</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_obscurus.png" alt="默默然">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E9%AD%94%E6%B3%95.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">默默然</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_zuanxinwangu.png" alt="摧心咒">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E9%AD%94%E6%B3%95.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">摧心咒</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_shandianfengbao.png" alt="闪电风暴">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_6.png" alt="">
+        </div>
+        <span class="card-name">闪电风暴</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_shidunchudong.png" alt="石礅出动">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_6.png" alt="">
+        </div>
+        <span class="card-name">石礅出动</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_maxingshuiguai.png" alt="马形水怪">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_6.png" alt="">
+        </div>
+        <span class="card-name">马形水怪</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_jinsefeizei.png" alt="金色飞贼">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">金色飞贼</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_niutexiangzi.png" alt="神奇生物手提箱">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">神奇生物手提箱</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_yinxingyi.png" alt="隐形衣">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">隐形衣</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_xiaomaerfu.png" alt="马尔福三人组">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          
+        </div>
+        <span class="card-name">马尔福三人组</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_juwuzei.png" alt="巨乌贼">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_8.png" alt="">
+        </div>
+        <span class="card-name">巨乌贼</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_fenghuang.png" alt="凤凰">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_7.png" alt="">
+        </div>
+        <span class="card-name">凤凰</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_longdan.png" alt="挪威脊背龙蛋">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_7.png" alt="">
+        </div>
+        <span class="card-name">挪威脊背龙蛋</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_lihuo.png" alt="厉火">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_7.png" alt="">
+        </div>
+        <span class="card-name">厉火</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_1990.png" alt="驺吾">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_7.png" alt="">
+        </div>
+        <span class="card-name">驺吾</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_mibumibao.png" alt="米布米宝">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_6.png" alt="">
+        </div>
+        <span class="card-name">米布米宝</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_huodunhushen.png" alt="火盾护身">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">火盾护身</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_1175.png" alt="幽灵骑士团">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">幽灵骑士团</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_tushuguanchoukashu.png" alt="标准咒语书">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">标准咒语书</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_1188.png" alt="诗翁彼豆故事集">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_2.png" alt="">
+        </div>
+        <span class="card-name">诗翁彼豆故事集</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_halibote.png" alt="哈利·波特">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          
+        </div>
+        <span class="card-name">哈利·波特</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_hemin.png" alt="赫敏·格兰杰">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          
+        </div>
+        <span class="card-name">赫敏·格兰杰</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_luna.png" alt="卢娜·洛夫古德">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          
+        </div>
+        <span class="card-name">卢娜·洛夫古德</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_shuilao.png" alt="水牢">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_6.png" alt="">
+        </div>
+        <span class="card-name">水牢</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_aozhoudanbaiyanlongbaobao.png" alt="澳洲蛋白眼幼龙">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_6.png" alt="">
+        </div>
+        <span class="card-name">澳洲蛋白眼幼龙</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_zhongguohuoqiulong.png" alt="中国火球幼龙">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">中国火球幼龙</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_maige.png" alt="米勒娃·麦格">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          
+        </div>
+        <span class="card-name">米勒娃·麦格</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_longshouren.png" alt="龙守仁">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          
+        </div>
+        <span class="card-name">龙守仁</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_bianfuxilai.png" alt="蝙蝠袭来">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">蝙蝠袭来</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_fengyuleizai.png" alt="风雨雷灾">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">风雨雷灾</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_hushuluoguo.png" alt="护树罗锅">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E4%BC%A0%E8%AF%B4.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">护树罗锅</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_weisilaiyanhuo.png" alt="韦斯莱烟花">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_7.png" alt="">
+        </div>
+        <span class="card-name">韦斯莱烟花</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_sanbenyaoguaishu.png" alt="三本妖怪书">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_7.png" alt="">
+        </div>
+        <span class="card-name">三本妖怪书</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_1031.png" alt="霹雳爆炸">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">霹雳爆炸</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_youzouqiu.png" alt="游走球">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">游走球</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_feilaizhou.png" alt="飞来咒">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">飞来咒</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_shijianzhuanhuanqi.png" alt="时间转换器">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">时间转换器</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_chuniwuqi.png" alt="除你武器">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">除你武器</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_aiwei.png" alt="艾薇·沃林顿">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          
+        </div>
+        <span class="card-name">艾薇·沃林顿</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_duochongbingdongzhou.png" alt="多重冰冻咒">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_6.png" alt="">
+        </div>
+        <span class="card-name">多重冰冻咒</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_yinxingshou.png" alt="隐形兽">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_6.png" alt="">
+        </div>
+        <span class="card-name">隐形兽</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_1187.png" alt="食死徒">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">食死徒</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_tianpindashi.png" alt="甜点大师">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">甜点大师</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_sheshenqunian.png" alt="摄神取念">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">摄神取念</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_huoyanxiongxiong.png" alt="火焰熊熊">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">火焰熊熊</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_shenfengwuying.png" alt="神锋无影">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">神锋无影</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_quanyimo.png" alt="蜷翼魔">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">蜷翼魔</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_teboyouzhu.png" alt="特波疣猪">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">特波疣猪</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_shiweixie.png" alt="摇摆蝎尾兽">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">摇摆蝎尾兽</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_huohuishe.png" alt="火灰蛇">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">火灰蛇</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_qiqiuzhadan.png" alt="漂浮炸弹">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">漂浮炸弹</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_1166.png" alt="嗅嗅">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_2.png" alt="">
+        </div>
+        <span class="card-name">嗅嗅</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_fuleixiongdi.png" alt="弗雷兄弟">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          
+        </div>
+        <span class="card-name">弗雷兄弟</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_shanhuizhou.png" alt="闪回咒">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_0.png" alt="">
+        </div>
+        <span class="card-name">闪回咒</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_abigaier.png" alt="阿比盖尔·格雷">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          
+        </div>
+        <span class="card-name">阿比盖尔·格雷</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_haige.png" alt="鲁伯·海格">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          
+        </div>
+        <span class="card-name">鲁伯·海格</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_qieliezhou.png" alt="四分五裂">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">四分五裂</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_fnqq.png" alt="飞鸟群群">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">飞鸟群群</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_qishibashi.png" alt="骑士公共汽车">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">骑士公共汽车</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_langyafeipan.png" alt="狼牙飞碟">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">狼牙飞碟</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_bianxingzhou.png" alt="变形咒">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_2.png" alt="">
+        </div>
+        <span class="card-name">变形咒</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_kasangdela.png" alt="卡珊德拉·沃雷">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          
+        </div>
+        <span class="card-name">卡珊德拉·沃雷</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_quanyimosantouquanbaobao.png" alt="三头犬宝宝">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_14.png" alt="">
+        </div>
+        <span class="card-name">三头犬宝宝</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_leiniao.png" alt="雷鸟">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">雷鸟</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_shuijingqiu.png" alt="预言水晶球">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">预言水晶球</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_xinkepangke.png" alt="欣克庞克">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">欣克庞克</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_weisilaiyanhuahe.png" alt="把戏坊烟花盒">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">把戏坊烟花盒</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_gaobushi.png" alt="高布石">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">高布石</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_xueren.png" alt="雪人飞来">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_2.png" alt="">
+        </div>
+        <span class="card-name">雪人飞来</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_dujiaoshou_01.png" alt="独角兽">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">独角兽</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_pipigui.png" alt="皮皮鬼">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">皮皮鬼</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_jufengzhou.png" alt="飓风咒">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">飓风咒</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_niaoshe.png" alt="鸟蛇">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">鸟蛇</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_geluopu.png" alt="格洛普">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          
+        </div>
+        <span class="card-name">格洛普</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_luodi.png" alt="洛蒂·特纳">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          
+        </div>
+        <span class="card-name">洛蒂·特纳</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_bljg.png" alt="芭蕾巨怪">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E5%8F%B2%E8%AF%97.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_6.png" alt="">
+        </div>
+        <span class="card-name">芭蕾巨怪</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_huopangxie.png" alt="火螃蟹">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">火螃蟹</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_eponiao.png" alt="恶婆鸟">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">恶婆鸟</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_qingshuiruquan.png" alt="清水如泉">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">清水如泉</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_tianqizhou.png" alt="气象咒">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">气象咒</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_xueqiuzhou.png" alt="雪球咒">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">雪球咒</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_feishazoushi.png" alt="飞沙走石">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_2.png" alt="">
+        </div>
+        <span class="card-name">飞沙走石</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_yunwupiaomiao.png" alt="云雾缥缈">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_2.png" alt="">
+        </div>
+        <span class="card-name">云雾缥缈</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_kaiwen.png" alt="凯文·法雷尔">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          
+        </div>
+        <span class="card-name">凯文·法雷尔</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_bingdongzhou.png" alt="冰冻咒">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">冰冻咒</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_wushiqi.png" alt="棋子士兵">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">棋子士兵</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_quanyimopengzhangzhou.png" alt="充气咒">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">充气咒</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_kuijiahushen.png" alt="盔甲护身">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">盔甲护身</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_yaoguaimendeyaoguaishu.png" alt="妖怪们的妖怪书">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">妖怪们的妖怪书</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_yuheruchu.png" alt="愈合如初">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">愈合如初</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_suicongxianxing.png" alt="随从显形">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_2.png" alt="">
+        </div>
+        <span class="card-name">随从显形</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_guanglun2000.png" alt="飞天扫帚">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_2.png" alt="">
+        </div>
+        <span class="card-name">飞天扫帚</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_madagemao.png" alt="灵猫">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">灵猫</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_zhaweiluo.png" alt="炸尾螺">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_16.png" alt="">
+        </div>
+        <span class="card-name">炸尾螺</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_dujiaoshou_02.png" alt="犀角兽">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">犀角兽</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_shanguai.png" alt="巨怪">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">巨怪</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_zhizhuchaoxue.png" alt="八眼蜘蛛巢穴">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">八眼蜘蛛巢穴</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_tongtongshihua.png" alt="统统石化">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">统统石化</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_feiluwang.png" alt="飞路网">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_2.png" alt="">
+        </div>
+        <span class="card-name">飞路网</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_darenliu.png" alt="打人柳">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">打人柳</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_1183.png" alt="记忆瓶">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">记忆瓶</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_yuechishou.png" alt="月痴兽">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">月痴兽</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_1191.png" alt="咒语大全">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_2.png" alt="">
+        </div>
+        <span class="card-name">咒语大全</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_xiaoshigui.png" alt="消失柜">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_2.png" alt="">
+        </div>
+        <span class="card-name">消失柜</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_luobin.png" alt="萝宾·西斯尔思韦特">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          
+        </div>
+        <span class="card-name">萝宾·西斯尔思韦特</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_yeti.png" alt="雪怪">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">雪怪</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_1184.png" alt="混淆咒">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_2.png" alt="">
+        </div>
+        <span class="card-name">混淆咒</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_dannier.png" alt="丹尼尔·佩杰">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          
+        </div>
+        <span class="card-name">丹尼尔·佩杰</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_reliuzhou.png" alt="热流咒">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E7%A8%80%E6%9C%89.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">热流咒</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_tongtongjiahu.png" alt="统统加护">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">统统加护</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_hunhundaodi.png" alt="昏昏倒地">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">昏昏倒地</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_bayanjuzhudeduye.png" alt="八眼巨蛛的毒液">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">八眼巨蛛的毒液</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_baixianjinghua.png" alt="白鲜香精">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">白鲜香精</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_kangwoerjunxiaojingling.png" alt="康沃尔郡小精灵">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">康沃尔郡小精灵</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_banrenma.png" alt="马人">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">马人</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_menyaoshi.png" alt="门钥匙">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">门钥匙</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_xiaozhizhuqun.png" alt="小蜘蛛群">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">小蜘蛛群</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_susujingu.png" alt="速速禁锢">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">速速禁锢</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_tongtongfeilai.png" alt="统统归来">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">统统归来</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_1185.png" alt="莫特拉鼠">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">莫特拉鼠</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_wandanqifa.png" alt="万弹齐发">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_2.png" alt="">
+        </div>
+        <span class="card-name">万弹齐发</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_fangdayaoshui.png" alt="肿胀药水">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_2.png" alt="">
+        </div>
+        <span class="card-name">肿胀药水</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_fusuzhou.png" alt="快快复苏">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">快快复苏</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_mofatiaotiaotang.png" alt="魔法跳跳糖">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">魔法跳跳糖</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_quansujidao.png" alt="全速击退">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">全速击退</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_daiyidangong.png" alt="带翼弹弓">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_5.png" alt="">
+        </div>
+        <span class="card-name">带翼弹弓</span>
+      </article><article class="card-item" data-type="咒语卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_tezhipaoxiaoxin.png" alt="吼叫信">
+          <img class="card-frame" src="background/%E5%92%92%E8%AF%AD%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_4.png" alt="">
+        </div>
+        <span class="card-name">吼叫信</span>
+      </article><article class="card-item" data-type="召唤卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_zhengguliwuhe.png" alt="整蛊礼物盒">
+          <img class="card-frame" src="background/%E5%8F%AC%E5%94%A4%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          <img class="card-mastery" src="background/shuliandu.png" alt=""><img class="card-cost" src="background/card_num_3.png" alt="">
+        </div>
+        <span class="card-name">整蛊礼物盒</span>
+      </article><article class="card-item" data-type="伙伴卡">
+        <div class="card-visual">
+          <img class="card-art" src="background/card_wumuliqi.png" alt="多洛雷斯·乌姆里奇">
+          <img class="card-frame" src="background/%E4%BC%99%E4%BC%B4%E5%8D%A1_%E6%99%AE%E9%80%9A.png" alt="">
+          
+        </div>
+        <span class="card-name">多洛雷斯·乌姆里奇</span>
+      </article></div></section></main>
+<script>document.querySelectorAll(".filter").forEach(button=>button.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(item=>item.classList.remove("on"));button.classList.add("on");const filter=button.dataset.filter;document.querySelectorAll(".card-item").forEach(card=>{card.hidden=filter!=="全部"&&card.dataset.type!==filter})}))</script></body></html>

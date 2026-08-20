@@ -1,7 +1,7 @@
 import cv2
 import json
 
-VIDEO_PATH = 'output.mp4'
+VIDEO_PATH = '舞会标注视频.mp4'
 OUTPUT_JSON = 'annotations.json'
 
 cap = cv2.VideoCapture(VIDEO_PATH)

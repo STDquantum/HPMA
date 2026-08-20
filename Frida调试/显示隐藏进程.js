@@ -1,4 +1,4 @@
-// 脚本：fix_process_enum.js
+// 脚本：显示隐藏进程.js
 Interceptor.attach(Module.findExportByName(null, "readdir"), {
     onLeave: function(retval) {
         var dirEntry = retval;

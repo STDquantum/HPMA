@@ -3,7 +3,7 @@ import os
 import json
 import numpy as np
 
-VIDEO = "video.mp4"
+VIDEO = "舞会原始视频.mp4"
 FRAME_FOLDER = "frames"
 os.makedirs(FRAME_FOLDER, exist_ok=True)
 
@@ -65,5 +65,5 @@ print(fps)
 # cap.release()
 
 # # 保存操作信息
-# with open("ops.json", "w") as f:
+# with open("检测操作.json", "w") as f:
 #     json.dump(operations, f, indent=2)

@@ -1,0 +1,233 @@
+{
+ "note": "帽子 → auto_cut_hair_hat_mask_id（同 id = 同一套裁发方案，可共用切面）",
+ "by_hat": {
+  "female_hat_06": 44,
+  "female_hat_101_shg": 34,
+  "female_hat_102_xxmz": 5,
+  "female_hat_111_hwd": 10,
+  "female_hat_112_csm": 15,
+  "female_hat_114_hbhd": 31,
+  "female_hat_122_gzblm": 58,
+  "female_hat_124_bfws": 35,
+  "female_hat_16": 45,
+  "female_hat_17": 47,
+  "female_hat_177_cyxj": 36,
+  "female_hat_20": 7,
+  "female_hat_200_lsxy": 58,
+  "female_hat_220_xxtamy": 3,
+  "female_hat_224_xhm": 13,
+  "female_hat_259_xnsj": 18,
+  "female_hat_262_blklg": 22,
+  "female_hat_264_stq": 20,
+  "female_hat_265_xczy": 27,
+  "female_hat_266_hmffyk": 25,
+  "female_hat_268_ppg": 29,
+  "female_hat_275_xxxlg": 58,
+  "female_hat_277_bkqlg": 60,
+  "female_hat_27_mxsg": 58,
+  "female_hat_280_fhslg": 64,
+  "female_hat_285_smgyy": 59,
+  "female_hat_301_yrslg": 58,
+  "female_hat_303_lxws": 91,
+  "female_hat_304_kfslg": 59,
+  "female_hat_58_pbl": 61,
+  "female_hat_60_hjxt": 40,
+  "female_hat_64": 33,
+  "female_hat_67_dh": 62,
+  "female_hat_81_jhyp": 37,
+  "female_hat_83_cyhdj": 38,
+  "female_hat_85_bscm": 39,
+  "female_hat_common_05": 58,
+  "male_hat_102_xxmz": 4,
+  "male_hat_111_hwd": 9,
+  "male_hat_112_csm": 14,
+  "male_hat_114_hbhd": 30,
+  "male_hat_122_gzblm": 58,
+  "male_hat_156_zcxt": 58,
+  "male_hat_20": 7,
+  "male_hat_200_lsxy": 58,
+  "male_hat_209_klylxj": 23,
+  "male_hat_220_xxtamy": 2,
+  "male_hat_224_xhm": 12,
+  "male_hat_259_xnsj": 17,
+  "male_hat_261_tgzy02": 58,
+  "male_hat_262_blklg": 21,
+  "male_hat_264_stq": 19,
+  "male_hat_265_xczy": 26,
+  "male_hat_266_hmffyk": 24,
+  "male_hat_268_ppg": 28,
+  "male_hat_275_xxxlg": 58,
+  "male_hat_277_bkqlg": 60,
+  "male_hat_27_mxsg": 58,
+  "male_hat_280_fhslg": 63,
+  "male_hat_295_byhlg": 6,
+  "male_hat_301_yrslg": 58,
+  "male_hat_35_jiayoumao01": 46,
+  "male_hat_64": 32,
+  "male_hat_78_psfr": 6,
+  "male_hat_common_05": 58
+ },
+ "by_id": {
+  "2": [
+   "male_hat_220_xxtamy"
+  ],
+  "3": [
+   "female_hat_220_xxtamy"
+  ],
+  "4": [
+   "male_hat_102_xxmz"
+  ],
+  "5": [
+   "female_hat_102_xxmz"
+  ],
+  "6": [
+   "male_hat_295_byhlg",
+   "male_hat_78_psfr"
+  ],
+  "7": [
+   "female_hat_20",
+   "male_hat_20"
+  ],
+  "9": [
+   "male_hat_111_hwd"
+  ],
+  "10": [
+   "female_hat_111_hwd"
+  ],
+  "12": [
+   "male_hat_224_xhm"
+  ],
+  "13": [
+   "female_hat_224_xhm"
+  ],
+  "14": [
+   "male_hat_112_csm"
+  ],
+  "15": [
+   "female_hat_112_csm"
+  ],
+  "17": [
+   "male_hat_259_xnsj"
+  ],
+  "18": [
+   "female_hat_259_xnsj"
+  ],
+  "19": [
+   "male_hat_264_stq"
+  ],
+  "20": [
+   "female_hat_264_stq"
+  ],
+  "21": [
+   "male_hat_262_blklg"
+  ],
+  "22": [
+   "female_hat_262_blklg"
+  ],
+  "23": [
+   "male_hat_209_klylxj"
+  ],
+  "24": [
+   "male_hat_266_hmffyk"
+  ],
+  "25": [
+   "female_hat_266_hmffyk"
+  ],
+  "26": [
+   "male_hat_265_xczy"
+  ],
+  "27": [
+   "female_hat_265_xczy"
+  ],
+  "28": [
+   "male_hat_268_ppg"
+  ],
+  "29": [
+   "female_hat_268_ppg"
+  ],
+  "30": [
+   "male_hat_114_hbhd"
+  ],
+  "31": [
+   "female_hat_114_hbhd"
+  ],
+  "32": [
+   "male_hat_64"
+  ],
+  "33": [
+   "female_hat_64"
+  ],
+  "34": [
+   "female_hat_101_shg"
+  ],
+  "35": [
+   "female_hat_124_bfws"
+  ],
+  "36": [
+   "female_hat_177_cyxj"
+  ],
+  "37": [
+   "female_hat_81_jhyp"
+  ],
+  "38": [
+   "female_hat_83_cyhdj"
+  ],
+  "39": [
+   "female_hat_85_bscm"
+  ],
+  "40": [
+   "female_hat_60_hjxt"
+  ],
+  "44": [
+   "female_hat_06"
+  ],
+  "45": [
+   "female_hat_16"
+  ],
+  "46": [
+   "male_hat_35_jiayoumao01"
+  ],
+  "47": [
+   "female_hat_17"
+  ],
+  "58": [
+   "female_hat_122_gzblm",
+   "female_hat_200_lsxy",
+   "female_hat_275_xxxlg",
+   "female_hat_27_mxsg",
+   "female_hat_301_yrslg",
+   "female_hat_common_05",
+   "male_hat_122_gzblm",
+   "male_hat_156_zcxt",
+   "male_hat_200_lsxy",
+   "male_hat_261_tgzy02",
+   "male_hat_275_xxxlg",
+   "male_hat_27_mxsg",
+   "male_hat_301_yrslg",
+   "male_hat_common_05"
+  ],
+  "59": [
+   "female_hat_285_smgyy",
+   "female_hat_304_kfslg"
+  ],
+  "60": [
+   "female_hat_277_bkqlg",
+   "male_hat_277_bkqlg"
+  ],
+  "61": [
+   "female_hat_58_pbl"
+  ],
+  "62": [
+   "female_hat_67_dh"
+  ],
+  "63": [
+   "male_hat_280_fhslg"
+  ],
+  "64": [
+   "female_hat_280_fhslg"
+  ],
+  "91": [
+   "female_hat_303_lxws"
+  ]
+ }
+}

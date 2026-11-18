@@ -1,0 +1,470 @@
+{
+ "groups": [
+  {
+   "id": "idle",
+   "label": "待机"
+  },
+  {
+   "id": "walk",
+   "label": "走动"
+  },
+  {
+   "id": "emote",
+   "label": "社交"
+  }
+ ],
+ "clips": [
+  {
+   "name": "idle",
+   "group": "idle",
+   "zh": "基础待机（呼吸）",
+   "loop": true,
+   "duration": 2.17,
+   "keys": 66,
+   "driven": 190,
+   "kb": 657,
+   "gender": "female"
+  },
+  {
+   "name": "idle_wyds_zuo",
+   "group": "idle",
+   "zh": "待机·左顾",
+   "loop": true,
+   "duration": 2.0,
+   "keys": 61,
+   "driven": 190,
+   "kb": 608,
+   "gender": "female"
+  },
+  {
+   "name": "idle_wyds_you",
+   "group": "idle",
+   "zh": "待机·右盼",
+   "loop": true,
+   "duration": 2.0,
+   "keys": 61,
+   "driven": 143,
+   "kb": 608,
+   "gender": "female"
+  },
+  {
+   "name": "idle_zuokan_a",
+   "group": "idle",
+   "zh": "待机·左看 A",
+   "loop": true,
+   "duration": 0.83,
+   "keys": 26,
+   "driven": 190,
+   "kb": 261,
+   "gender": "female"
+  },
+  {
+   "name": "idle_zuokan_b",
+   "group": "idle",
+   "zh": "待机·左看 B",
+   "loop": true,
+   "duration": 1.67,
+   "keys": 51,
+   "driven": 190,
+   "kb": 509,
+   "gender": "female"
+  },
+  {
+   "name": "idle_zuokan_c",
+   "group": "idle",
+   "zh": "待机·左看 C",
+   "loop": true,
+   "duration": 0.83,
+   "keys": 26,
+   "driven": 143,
+   "kb": 261,
+   "gender": "female"
+  },
+  {
+   "name": "idle_youkan",
+   "group": "idle",
+   "zh": "待机·右看",
+   "loop": true,
+   "duration": 3.33,
+   "keys": 101,
+   "driven": 190,
+   "kb": 1004,
+   "gender": "female"
+  },
+  {
+   "name": "idle_daduosuo",
+   "group": "idle",
+   "zh": "待机·打哆嗦",
+   "loop": true,
+   "duration": 4.67,
+   "keys": 141,
+   "driven": 143,
+   "kb": 1400,
+   "gender": "female"
+  },
+  {
+   "name": "idle_saoba_shuangren",
+   "group": "idle",
+   "zh": "待机·扫把（双人）",
+   "loop": true,
+   "duration": 1.67,
+   "keys": 51,
+   "driven": 190,
+   "kb": 509,
+   "gender": "female"
+  },
+  {
+   "name": "pvp_idle01_a",
+   "group": "idle",
+   "zh": "PVP 待机 01A",
+   "loop": true,
+   "duration": 13.3,
+   "keys": 134,
+   "driven": 190,
+   "kb": 1331,
+   "gender": "female"
+  },
+  {
+   "name": "pvp_idle01_b",
+   "group": "idle",
+   "zh": "PVP 待机 01B",
+   "loop": true,
+   "duration": 12.83,
+   "keys": 130,
+   "driven": 190,
+   "kb": 1292,
+   "gender": "female"
+  },
+  {
+   "name": "pvp_idle03_a",
+   "group": "idle",
+   "zh": "PVP 待机 03A",
+   "loop": true,
+   "duration": 6.83,
+   "keys": 70,
+   "driven": 190,
+   "kb": 697,
+   "gender": "female"
+  },
+  {
+   "name": "idle_xiuxian_crhf",
+   "group": "idle",
+   "zh": "休闲待机·crhf",
+   "loop": true,
+   "duration": 4.63,
+   "keys": 140,
+   "driven": 190,
+   "kb": 1391,
+   "gender": "female"
+  },
+  {
+   "name": "idle_xiuxian_261_tgzy02",
+   "group": "idle",
+   "zh": "休闲待机·261",
+   "loop": true,
+   "duration": 8.67,
+   "keys": 261,
+   "driven": 143,
+   "kb": 2589,
+   "gender": "female"
+  },
+  {
+   "name": "idle_xiuxian_280_fhslg",
+   "group": "idle",
+   "zh": "休闲待机·280",
+   "loop": true,
+   "duration": 6.4,
+   "keys": 193,
+   "driven": 190,
+   "kb": 1916,
+   "gender": "female"
+  },
+  {
+   "name": "idle_xiuxian_292_mxplg",
+   "group": "idle",
+   "zh": "休闲待机·292",
+   "loop": true,
+   "duration": 9.33,
+   "keys": 281,
+   "driven": 190,
+   "kb": 2787,
+   "gender": "female"
+  },
+  {
+   "name": "idle_xiuxian_300_pnal",
+   "group": "idle",
+   "zh": "休闲待机·300",
+   "loop": true,
+   "duration": 8.13,
+   "keys": 245,
+   "driven": 190,
+   "kb": 2431,
+   "gender": "female"
+  },
+  {
+   "name": "pvp_idle_mz_004_smswlg",
+   "group": "idle",
+   "zh": "PVP 持杖待机·004",
+   "loop": true,
+   "duration": 9.83,
+   "keys": 296,
+   "driven": 190,
+   "kb": 2936,
+   "gender": "female"
+  },
+  {
+   "name": "pvp_idle_mz_005_zxlg",
+   "group": "idle",
+   "zh": "PVP 持杖待机·005",
+   "loop": true,
+   "duration": 9.43,
+   "keys": 284,
+   "driven": 190,
+   "kb": 2817,
+   "gender": "female"
+  },
+  {
+   "name": "pvp_idle_mz_dtlg",
+   "group": "idle",
+   "zh": "PVP 持杖待机·dtlg",
+   "loop": true,
+   "duration": 15.47,
+   "keys": 465,
+   "driven": 135,
+   "kb": 4610,
+   "gender": "female"
+  },
+  {
+   "name": "pvp_idle_mz_mglg",
+   "group": "idle",
+   "zh": "PVP 持杖待机·mglg",
+   "loop": true,
+   "duration": 7.0,
+   "keys": 211,
+   "driven": 190,
+   "kb": 2094,
+   "gender": "female"
+  },
+  {
+   "name": "walk",
+   "group": "walk",
+   "zh": "走路",
+   "loop": true,
+   "duration": 1.07,
+   "keys": 33,
+   "driven": 190,
+   "kb": 331,
+   "gender": "female"
+  },
+  {
+   "name": "walk_284_bxlg",
+   "group": "walk",
+   "zh": "走路·284",
+   "loop": true,
+   "duration": 1.2,
+   "keys": 37,
+   "driven": 143,
+   "kb": 370,
+   "gender": "female"
+  },
+  {
+   "name": "qiqiu_walk",
+   "group": "walk",
+   "zh": "走路·气球",
+   "loop": true,
+   "duration": 1.07,
+   "keys": 33,
+   "driven": 190,
+   "kb": 331,
+   "gender": "female"
+  },
+  {
+   "name": "run_end_l",
+   "group": "walk",
+   "zh": "跑步收势·左",
+   "loop": true,
+   "duration": 1.17,
+   "keys": 36,
+   "driven": 77,
+   "kb": 360,
+   "gender": "female"
+  },
+  {
+   "name": "run_end_r",
+   "group": "walk",
+   "zh": "跑步收势·右",
+   "loop": true,
+   "duration": 1.17,
+   "keys": 36,
+   "driven": 48,
+   "kb": 360,
+   "gender": "female"
+  },
+  {
+   "name": "fastrun_end_l_284_bxlg",
+   "group": "walk",
+   "zh": "加速跑收势·左",
+   "loop": true,
+   "duration": 2.27,
+   "keys": 69,
+   "driven": 143,
+   "kb": 687,
+   "gender": "female"
+  },
+  {
+   "name": "fastrun_end_r_284_bxlg",
+   "group": "walk",
+   "zh": "加速跑收势·右",
+   "loop": true,
+   "duration": 2.27,
+   "keys": 69,
+   "driven": 143,
+   "kb": 687,
+   "gender": "female"
+  },
+  {
+   "name": "zx_woshou",
+   "group": "emote",
+   "zh": "挥手",
+   "loop": false,
+   "duration": 2.33,
+   "keys": 71,
+   "driven": 190,
+   "kb": 707,
+   "gender": "female"
+  },
+  {
+   "name": "zx_woshou02_b",
+   "group": "emote",
+   "zh": "挥手 02B",
+   "loop": false,
+   "duration": 2.0,
+   "keys": 61,
+   "driven": 190,
+   "kb": 608,
+   "gender": "female"
+  },
+  {
+   "name": "zx_sayhello",
+   "group": "emote",
+   "zh": "打招呼",
+   "loop": false,
+   "duration": 4.17,
+   "keys": 126,
+   "driven": 143,
+   "kb": 1252,
+   "gender": "female"
+  },
+  {
+   "name": "zx_dazhaohu",
+   "group": "emote",
+   "zh": "热情打招呼",
+   "loop": false,
+   "duration": 2.83,
+   "keys": 86,
+   "driven": 190,
+   "kb": 856,
+   "gender": "female"
+  },
+  {
+   "name": "zx_shifa",
+   "group": "emote",
+   "zh": "撩头发",
+   "loop": false,
+   "duration": 2.27,
+   "keys": 69,
+   "driven": 190,
+   "kb": 687,
+   "gender": "female"
+  },
+  {
+   "name": "zx_look_around",
+   "group": "emote",
+   "zh": "四处张望",
+   "loop": false,
+   "duration": 5.83,
+   "keys": 176,
+   "driven": 143,
+   "kb": 1747,
+   "gender": "female"
+  },
+  {
+   "name": "zx_diantou",
+   "group": "emote",
+   "zh": "点头",
+   "loop": false,
+   "duration": 2.0,
+   "keys": 61,
+   "driven": 190,
+   "kb": 608,
+   "gender": "female"
+  },
+  {
+   "name": "zx_yaotou",
+   "group": "emote",
+   "zh": "摇头",
+   "loop": false,
+   "duration": 3.53,
+   "keys": 107,
+   "driven": 143,
+   "kb": 1064,
+   "gender": "female"
+  },
+  {
+   "name": "zx_gaoxing",
+   "group": "emote",
+   "zh": "高兴",
+   "loop": false,
+   "duration": 4.33,
+   "keys": 131,
+   "driven": 143,
+   "kb": 1301,
+   "gender": "female"
+  },
+  {
+   "name": "zx_daxiao",
+   "group": "emote",
+   "zh": "大笑",
+   "loop": false,
+   "duration": 3.47,
+   "keys": 105,
+   "driven": 190,
+   "kb": 1044,
+   "gender": "female"
+  },
+  {
+   "name": "zx_shenmixiao",
+   "group": "emote",
+   "zh": "神秘一笑",
+   "loop": false,
+   "duration": 2.73,
+   "keys": 83,
+   "driven": 143,
+   "kb": 826,
+   "gender": "female"
+  },
+  {
+   "name": "zx_jingya",
+   "group": "emote",
+   "zh": "惊讶",
+   "loop": false,
+   "duration": 3.43,
+   "keys": 104,
+   "driven": 190,
+   "kb": 1034,
+   "gender": "female"
+  },
+  {
+   "name": "zx_weixie",
+   "group": "emote",
+   "zh": "威胁",
+   "loop": false,
+   "duration": 4.47,
+   "keys": 135,
+   "driven": 190,
+   "kb": 1341,
+   "gender": "female"
+  }
+ ],
+ "note": "PC RAWANIMA 可读变体；根骨原地，时长按源关键帧播放"
+}

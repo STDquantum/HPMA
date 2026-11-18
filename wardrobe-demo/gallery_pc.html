@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>哈利波特·魔法觉醒 — 全量衣柜浏览器</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Segoe UI", "Microsoft YaHei", sans-serif; background: #0e1014; color: #e8e6df; overflow: hidden; }
+  #app { display: flex; height: 100vh; }
+  #view { flex: 1; position: relative; min-width: 0; }
+  #side { width: 380px; background: #15181f; border-left: 1px solid #262b36; display: flex; flex-direction: column; }
+  header { padding: 14px 16px 10px; border-bottom: 1px solid #262b36; }
+  h1 { margin: 0; font-size: 15px; font-weight: 600; }
+  .sub { margin: 5px 0 0; font-size: 11px; color: #7f8797; }
+  #tools { padding: 10px 12px 8px; border-bottom: 1px solid #262b36; display: flex; gap: 6px; flex-wrap: wrap; }
+  input[type=search], select { background: #1d222b; border: 1px solid #2b313d; color: #dfe5ef; font-size: 12px; border-radius: 5px; padding: 5px 7px; }
+  input[type=search] { flex: 1 1 100%; }
+  #tabs { display: flex; gap: 5px; overflow-x: auto; padding: 8px 12px; border-bottom: 1px solid #262b36; }
+  #tabs button { background: #1d222b; border: 1px solid #2b313d; color: #b9c2d0; font-size: 11px; padding: 5px 9px; border-radius: 12px; white-space: nowrap; cursor: pointer; }
+  #tabs button.on { background: #2f4d7a; border-color: #4f7fc4; color: #fff; }
+  #list { flex: 1; overflow-y: auto; padding: 6px 10px 20px; }
+  .row { display: flex; align-items: center; gap: 8px; padding: 5px 7px; border-radius: 5px; cursor: pointer; font-size: 12px; }
+  .row:hover { background: #1e242e; }
+  .row.on { background: #24405f; }
+  .row .n { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .row .m { font-size: 10px; color: #6f798a; }
+  .zh { color: #e8d9a8; font-weight: 600; }
+  .more { margin: 8px 0; width: 100%; background: #1d222b; border: 1px solid #2b313d; color: #9aa3b2; font-size: 11px; padding: 6px; border-radius: 5px; cursor: pointer; }
+  #slots { border-top: 1px solid #262b36; padding: 8px 12px 12px; font-size: 11px; color: #9aa3b2; }
+  #slots b { color: #cfd6e2; font-weight: 500; }
+  #slots .line { margin: 2px 0; }
+  #stats { position: absolute; left: 14px; top: 12px; font-size: 11px; color: #8b94a4; line-height: 1.6; pointer-events: none; }
+  #hud { position: absolute; left: 14px; bottom: 12px; font-size: 11px; color: #6d7686; pointer-events: none; }
+  #loading { position: absolute; inset: 0; display: grid; place-items: center; font-size: 13px; color: #8b94a4; background: #0e1014; z-index: 5; }
+  #err { position: absolute; left: 14px; bottom: 40px; font: 11px monospace; color: #ff8a8a; white-space: pre; }
+  #animbar { border-top: 1px solid #262b36; padding: 9px 12px 10px; font-size: 11px; }
+  #animsex { display: flex; gap: 6px; margin: 0 0 7px; }
+  #animsex button { padding: 3px 10px; border-radius: 6px; }
+  #animsex button.on { background: #2f3d5c; color: #fff; }
+  #animbar .ah { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 7px; }
+  #animbar .ah b { color: #cfd6e2; font-weight: 600; }
+  #animnow { color: #8b94a4; font-size: 10px; max-width: 230px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  #animtabs { display: flex; gap: 5px; margin-bottom: 6px; }
+  #animtabs button { flex: 1; background: #1d222b; border: 1px solid #2b313d; color: #b9c2d0; font-size: 11px; padding: 4px 0; border-radius: 10px; cursor: pointer; }
+  #animtabs button.on { background: #35506f; border-color: #4f7fc4; color: #fff; }
+  #animrow { display: flex; gap: 6px; }
+  #animclip { flex: 1; min-width: 0; }
+  #animplay, #animstop { background: #1d222b; border: 1px solid #2b313d; color: #cfd6e2; border-radius: 5px; padding: 4px 9px; font-size: 11px; cursor: pointer; }
+  #animplay:hover, #animstop:hover { background: #263040; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "./lib/three.module.js", "three/addons/": "./lib/jsm/" } }
+</script>
+</head>
+<body>
+<div id="app">
+  <div id="view">
+    <div id="stats"></div>
+    <div id="hud">左键拖拽旋转 · 滚轮缩放 · 右键平移</div>
+    <div id="err"></div>
+    <div id="dbg" style="position:absolute;right:10px;bottom:10px;font:10px monospace;color:#7f8797;white-space:pre;pointer-events:none"></div>
+    <div id="loading">正在读取全量清单…</div>
+  </div>
+  <div id="side">
+    <header>
+      <h1>全量衣柜浏览器</h1>
+      <p class="sub" id="sub">载入中…</p>
+    </header>
+    <div id="tools">
+      <input type="search" id="q" placeholder="搜索件号：clothes_104 / hat_111 / body_02 …" />
+      <select id="sex"><option value="">男女全部</option><option value="girl">女</option><option value="boy">男</option></select>
+      <select id="lod"><option value="">全部 LOD</option><option value="high">high</option><option value="low">low</option></select>
+<select id="tone" title="肤色：跟随当前脸 / 从浅到深 9 级"></select>
+    </div>
+    <div id="tabs"></div>
+    <div id="list"></div>
+    <div id="animbar">
+      <div class="ah"><b>动作</b><span id="animnow">未播放</span></div>
+      <div id="animsex">
+        <button data-s="" class="on">全部</button><button data-s="female">女</button><button data-s="male">男</button>
+      </div>
+      <div id="animtabs"></div>
+      <div id="animrow">
+        <select id="animclip"></select>
+        <button id="animplay" title="播放 / 暂停">暂停</button>
+        <button id="animstop" title="回到绑定姿势">停</button>
+      </div>
+    </div>
+    <div id="slots"></div>
+  </div>
+</div>
+
+<script type="module">
+import * as THREE from "three";
+// 启动期异常兜底：直接写到 #err，页面文本可读（控制台在自动化里抓不到）
+addEventListener("error", e => {
+  const el = document.getElementById("err");
+  if (el) el.textContent += `ERR ${e.message} @${e.lineno}:${e.colno}\n`;
+});
+addEventListener("unhandledrejection", e => {
+  const el = document.getElementById("err");
+  if (el) el.textContent += `REJ ${(e.reason && e.reason.message) || e.reason}\n`;
+});
+
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+const view = document.getElementById("view");
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(view.clientWidth, view.clientHeight);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+view.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x12151b);
+const camera = new THREE.PerspectiveCamera(35, view.clientWidth / view.clientHeight, 0.1, 2000);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+scene.add(new THREE.HemisphereLight(0xdfe8ff, 0x2a2f3a, 2.2));
+const keyLight = new THREE.DirectionalLight(0xfff3e0, 2.4);
+keyLight.position.set(6, 12, 8);
+scene.add(keyLight);
+const rimLight = new THREE.DirectionalLight(0x9fc4ff, 1.2);
+rimLight.position.set(-8, 6, -6);
+scene.add(rimLight);
+const grid = new THREE.GridHelper(60, 60, 0x2a3040, 0x1c222c);
+scene.add(grid);
+
+const gltfLoader = new GLTFLoader();
+const PARAMS = new URLSearchParams(location.search);
+const cache = new Map();      // glb path -> object3D
+const ALPHA_TEST = PARAMS.get("alpha") === "1";
+const activeByCat = new Map(); // category -> {key, obj}
+const eyesObj = { obj: null };
+// bare-skin layer: garments with no hand/leg geometry borrow the game's own
+// `only_body/only_*` skin meshes. Their UVs live in the body skin atlas
+// (`<body_id>_01.dds`), so at runtime they simply take the face's own atlas (see applyTone).
+const skinObj = { objs: [], keys: [] };
+const SKIN_ON = PARAMS.get("skin") !== "0";
+
+const CAT_LABEL = { body: "脸/头", clothes: "衣服", hair: "发型", hat: "帽子",
+  earring: "耳饰", glasses: "眼镜", scarf: "围巾", bag: "包", brooch: "胸针",
+  tail: "尾巴", female_157_rxxy: "特殊" };
+
+let MANIFEST = [];   // flattened list
+let entries = {};    // key -> meta
+// 权威部位表：PC 端 <item>_body.gim → only_body 补片，models_pc/body_parts.json
+// 形如 {"items": {"female_clothes_105_qpgd_a__high": ["only_shou_02"]}, "vocab": {...}}
+let BODY_PARTS = { items: {}, vocab: {} };
+
+function err(msg) {
+  const el = document.getElementById("err");
+  el.textContent = (el.textContent ? el.textContent + "\n" : "") + msg;
+}
+
+async function loadObj(glb) {
+  if (cache.has(glb)) return cache.get(glb);
+  const g = await new Promise((res, rej) => gltfLoader.load(`./${glb}?v=${Date.now()}`, res, undefined, rej));
+  const root = g.scene;
+  root.traverse(o => {
+    if (o.isMesh) {
+      o.frustumCulled = false;
+      if (o.material) {
+        o.material.side = THREE.DoubleSide;
+        o.material.roughness = 0.85;
+        o.material.metalness = 0;
+        if (o.material.map) o.material.map.colorSpace = THREE.SRGBColorSpace;
+        if (ALPHA_TEST) { o.material.alphaTest = 0.5; o.material.transparent = false; }
+      }
+    }
+  });
+  captureBind(root);            // 记下每根骨的绑定姿势，动作停止 / 换动作时回写
+  cache.set(glb, root);
+  return root;
+}
+
+
+/* 重新取景：双击画布或按 R。换装/改窗口大小后构图会变，给一个一键回到全身的机会，
+   免得相机停在旧距离上、看起来像“贴进身体”。 */
+addEventListener("dblclick", (e) => { if (e.target === renderer.domElement) frameVisible(); });
+addEventListener("keydown", (e) => {
+  if (e.key === "r" || e.key === "R") { if (!/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName)) frameVisible(); }
+});
+let _rzTimer = 0;
+addEventListener("resize", () => { clearTimeout(_rzTimer); _rzTimer = setTimeout(frameVisible, 120); });
+
+function frameVisible() {
+  const geoBox = new THREE.Box3();
+  const boneBox = new THREE.Box3();
+  let n = 0;
+  const v = new THREE.Vector3();
+  scene.updateMatrixWorld(true);
+  scene.traverse(o => {
+    if (!o.isMesh || !o.visible) return;
+    n++;
+    o.geometry.computeBoundingBox();
+    geoBox.union(o.geometry.boundingBox.clone().applyMatrix4(o.matrixWorld));
+    if (o.isSkinnedMesh && o.skeleton) {
+      for (const b of o.skeleton.bones) { b.getWorldPosition(v); boneBox.expandByPoint(v); }
+    }
+  });
+  const box = geoBox.clone();
+  if (!box.isEmpty() && boneBox.isEmpty()) { /* geometry only */ }
+  // A mesh may carry a full 190-bone rig while only painting the head; trust the
+  // skeleton only when the geometry is clearly a tiny fragment of it.
+  if (!geoBox.isEmpty() && !boneBox.isEmpty()) {
+    const gh = geoBox.getSize(new THREE.Vector3()).y;
+    const bh = boneBox.getSize(new THREE.Vector3()).y;
+    if (gh < 1.0 && bh > gh * 2.5) box.union(boneBox);
+  }
+  if (box.isEmpty()) return;
+  const size = box.getSize(new THREE.Vector3());
+  const center = box.getCenter(new THREE.Vector3());
+  const fovY = THREE.MathUtils.degToRad(camera.fov);
+  const aspect = Math.max(0.5, camera.aspect || 1);
+  const dist = Math.max((size.y / 2) / Math.tan(fovY / 2),
+                        (size.x / 2) / (Math.tan(fovY / 2) * aspect)) * 1.25 + size.z * 0.6;
+  controls.target.copy(center);
+  /* 调试/验收用：?zoom=倍数（<1 拉近）、?yorit=角度（绕 Y 转到背面）、?py=目标抬高比例 */
+  const _zoom = parseFloat(PARAMS.get("zoom") || "") || 1;
+  const _yaw = THREE.MathUtils.degToRad(parseFloat(PARAMS.get("yorit") || "") || 12);
+  const _ry = dist * _zoom;
+  controls.target.y = center.y + size.y * (parseFloat(PARAMS.get("py") || "") || 0);
+  camera.position.set(center.x + _ry * Math.sin(_yaw),
+                      center.y + size.y * 0.02 + size.y * (parseFloat(PARAMS.get("pyl") || "") || 0),
+                      center.z + _ry * Math.cos(_yaw));
+  camera.near = Math.max(0.01, dist / 500); camera.far = dist * 20;
+  camera.updateProjectionMatrix(); controls.update();
+  document.getElementById("stats").textContent =
+    `包围盒 ${size.x.toFixed(2)} × ${size.y.toFixed(2)} × ${size.z.toFixed(2)} 单位 · ${n} 个网格`;
+}
+
+/* ---------------- 胸针贴面（PC 端原生没有胸针挂点，只能贴当前这件衣服的表面） ----------------
+   PC 的 .gim 是 NeoX BXML，里面有 <Sockets><Socket_N BoneName= MatrixToBone=>——
+   但只给“自带小道具/特效件”用（帽子绑 zi.gim、耳饰/眼镜绑 fx）。胸针/耳饰/眼镜的
+   主模型 gim 连 Socket 键都没有，身体 gim 的 Socket 骨全在头颈（y≈15–17），胸前一个都没有，
+   衣服 gim 也只声明自己的挂坠/特效。所以胸针的原生位置只能来自配置表（未解开），
+   模型侧靠不住：这里改成每次换衣服后把胸针沿 z 贴到当前衣服胸口正面。 */
+function chestSurface() {
+  const cl = activeByCat.get("clothes");
+  if (!cl || !cl.obj) return null;
+  scene.updateMatrixWorld(true);
+  const v = new THREE.Vector3();
+  let best = null;
+  cl.obj.traverse(o => {
+    if (!o.isMesh || !o.geometry) return;
+    const pos = o.geometry.getAttribute("position");
+    if (!pos) return;
+    for (let i = 0; i < pos.count; i++) {
+      v.fromBufferAttribute(pos, i).applyMatrix4(o.matrixWorld);
+      // 胸口正面带：y 12.2~13.4，|x|<0.5（避开侧胸与袖子）
+      if (v.y > 12.2 && v.y < 13.4 && Math.abs(v.x) < 0.5 && (!best || v.z > best.z)) {
+        best = { x: v.x, y: v.y, z: v.z };
+      }
+    }
+  });
+  return best;
+}
+
+/* 在 (x,y) 附近 r 半径内取当前衣服正面的最大 z（贴面用） */
+function chestSurfaceAt(x, y, r) {
+  const cl = activeByCat.get("clothes");
+  if (!cl || !cl.obj) return null;
+  scene.updateMatrixWorld(true);
+  const v = new THREE.Vector3();
+  let best = null;
+  cl.obj.traverse(o => {
+    if (!o.isMesh || !o.geometry) return;
+    const pos = o.geometry.getAttribute("position");
+    if (!pos) return;
+    for (let i = 0; i < pos.count; i++) {
+      v.fromBufferAttribute(pos, i).applyMatrix4(o.matrixWorld);
+      const dx = v.x - x, dy = v.y - y;
+      if (dx * dx + dy * dy < r * r && (!best || v.z > best)) best = v.z;
+    }
+  });
+  return best;
+}
+
+/* 原生别针锚点（两个）：手机包"试衣台"模型（character.npk #35619 女 / #8877 男，Plane001）
+   各有两个胸针 socket，BoneName 都是 "bip001 spine1"：
+     brooch    女 MatrixToBone 平移 (1.055121,0.832361,1.299858) / 男 (1.246467,0.807933,1.548108)
+     brooch_02 女 (1.239749,-0.681844,1.044349)        / 男 (1.144714,-1.363928,1.073456)
+   用身体 GLB 的 bip001_spine1 世界矩阵换算到角色空间：
+     女 brooch=(-0.847,13.021,1.572)  brooch_02=(0.667,13.184,1.302)
+     男 brooch=(-0.808,13.090,1.380)  brooch_02=(1.364,12.939,0.919)
+   即「左胸靠下、突出」「右胸偏高、更贴衣」两套原生位 —— 对应官方两枚胸针的分居。
+   PC 资源里没有任何挂点数据。逐件用 web/brooch_offsets.json：
+     值 [dx,dy,dz]            → 用 brooch（slot 1）再加偏移
+     值 {"slot":2,"off":[...]} → 用 brooch_02 再加偏移 */
+const BROOCH_NATIVE = {
+  // 注意：下面 x 已按查看器朝向取反（游戏内 x 与查看器画面 x 相反，
+  // 用官方截图「冰封之心在穿戴者左胸」实测校准；y/z 同向）。
+  female: [[0.847, 13.021, 1.572], [-0.667, 13.184, 1.302]],
+  male:   [[0.808, 13.090, 1.380], [-1.364, 12.939, 0.919]],
+};
+let BROOCH_OFF = {};
+fetch(`./brooch_offsets.json?v=${Date.now()}`).then(r => r.ok ? r.json() : {}).then(j => {
+  BROOCH_OFF = j || {};
+  try { Object.assign(BROOCH_OFF, JSON.parse(localStorage.getItem("hpma_brooch_off") || "{}")); } catch (e) {}
+  if (activeByCat.get("brooch")) snapBrooch();
+}).catch(() => {});
+
+/* role_dress 表里的两条帽–衣规则（PC 原配置，见 logs/hat_hair_rules.md §2/§3）：
+   hide_hat_clothes.json —— 穿 182_wyds 那几套袍子时把帽子藏起来；
+   hat_mask.json         —— 帽子 → auto_cut_hair_hat_mask_id，同 id 即同一套裁发方案。 */
+let HIDE_HAT = new Set();
+let HAT_MASK = {};
+const MASK_CUT = {};                       // mask id → 该族共用裁切高度（取最紧的一个）
+fetch(`./hide_hat_clothes.json?v=${Date.now()}`).then(r => r.ok ? r.json() : {}).then(j => {
+  HIDE_HAT = new Set(j.items || []);
+  // 可能 pick 已经先穿好了衣服：这里补一次判定，并把发型一起还原（帽子既然藏了就不该留 _a 变体）
+  if (applyHideHat() && !IN_HAT_SWAP) applyHatHair().then(updateHairCut);
+}).catch(() => {});
+fetch(`./hat_mask.json?v=${Date.now()}`).then(r => r.ok ? r.json() : {}).then(j => {
+  HAT_MASK = j.by_hat || {};
+  if (activeByCat.get("hat")) updateHairCut();
+}).catch(() => {});
+
+/* 帽子逐件偏移（口径同 glasses_offsets.json）：键 = item 名，值 [dx,dy,dz]，世界系叠加在
+   烘进顶点的原生锚点上。localStorage["hpma_hat_off"] 覆盖文件，可用 hpma:hatnudge 探针逐件标定后回写。 */
+let HAT_OFF = {};
+fetch(`./hat_offsets.json?v=${Date.now()}`).then(r => r.ok ? r.json() : {}).then(j => {
+  HAT_OFF = j || {};
+  try { Object.assign(HAT_OFF, JSON.parse(localStorage.getItem("hpma_hat_off") || "{}")); } catch (e) {}
+  if (activeByCat.get("hat")) snapHat();
+}).catch(() => {});
+
+/* ---------------- 配饰跟随骨骼 ----------------
+   本查看器的动作是靠 paintPose() 直接写骨架每根骨的局部矩阵，配饰如果挂在 scene 根节点上
+   就是死的（人转身它不动）。这里把配饰从 scene 摘出来，用 Object3D.attach 挂到对应骨骼：
+   默认世界变换不变（先算好位再挂），之后由骨骼的世界矩阵带着走。 */
+const ACC_BONE = {
+  brooch: ["bip001 spine1", "bip001 spine", "spine1", "spine"],
+  glasses: ["bip001 head", "bip001 head1", "bip001 neck", "head"],
+  earring: ["bip001 head", "bip001 head1", "bip001 neck", "head"],
+  hat: ["bip001 head", "bip001 head1", "bip001 neck", "head"],
+  ornamental: ["bip001 spine1", "bip001 spine", "spine1", "spine"],
+};
+
+function findRigBone(names) {
+  // GLTFLoader 会把节点名里的空格换成下划线（bip001 spine1 → bip001_spine1），两边都归一化再比
+  const want = names.map(n => n.toLowerCase().replace(/\s+/g, "_"));
+  for (const nm of want) {
+    let hit = null;
+    scene.traverse(o => {
+      if (hit || !o.isBone) return;
+      if (o.name.toLowerCase().replace(/\s+/g, "_") === nm) hit = o;
+    });
+    if (hit) return hit;
+  }
+  return null;
+}
+
+/* 放回 scene 并把局部变换归零（配饰的落点已烘进顶点 / 由 snapBrooch 重算） */
+function toScene(obj) {
+  if (obj.parent && obj.parent !== scene) obj.parent.remove(obj);
+  if (!obj.parent) scene.add(obj);
+  obj.position.set(0, 0, 0);
+  obj.quaternion.set(0, 0, 0, 1);
+  obj.scale.set(1, 1, 1);
+}
+
+function recordAccBone() {
+  const mm = {};
+  for (const [k, v] of activeByCat) if (v.bone) mm[k] = v.bone;
+  document.body.dataset.accBone = JSON.stringify(mm);
+}
+
+function reattachAccessory(cat) {
+  const a = activeByCat.get(cat);
+  if (!a || !a.obj) return false;
+  const names = ACC_BONE[cat];
+  if (!names) return false;
+  const bone = findRigBone(names);
+  if (!bone) return false;
+  if (a.obj.parent === bone) return true;
+  scene.updateMatrixWorld(true);
+  bone.attach(a.obj);                       // 保持世界位置，改父级 → 跟骨骼一起动
+  a.bone = bone.name;
+  recordAccBone();
+  return true;
+}
+
+/* 按「绑定姿势」挂到指定骨骼（眼镜 attachGlassesToHead 的通用版）：
+   不用挂骨瞬间的当前世界矩阵，避免把待机呼吸的相位差烘进局部矩阵（见 §41）。
+   返回骨骼对象，找不到返回 null。 */
+function attachToBindBone(obj, names) {
+  const bone = findRigBone(names);
+  if (!bone) return null;
+  obj.updateMatrix();
+  const bd = anim.bind.get(bone);
+  const bindWorld = (bd && bd.m) ? bd.m : bone.matrixWorld;
+  obj.matrix.premultiply(new THREE.Matrix4().copy(bindWorld).invert());
+  obj.matrix.decompose(obj.position, obj.quaternion, obj.scale);
+  bone.add(obj);
+  return bone;
+}
+
+/* 游戏里的「帽发适配」：表里有 auto_cut_hair / auto_cut_hair_hat_mask_id / hide_hat，
+   落到资源上就是同一发型的 _a / _b 变体（顶更低、后脑更贴，专门给帽子让位）。
+   这里做联动：戴帽时自动切到 _a（没有就 _b，再没有就保持原样），摘帽时还原。 */
+let IN_HAT_SWAP = false;
+let hatHairRestore = null;
+
+/* hide_hat：这几套衣服自带兜帽/披风，游戏里穿上就把帽子收起来（role_dress 里 8 条 true
+   全在衣服行）。这里只把帽子的 visible 关掉，物件仍留在 activeByCat 里，换掉衣服就能恢复。 */
+function clothesStem(key) {
+  return (key || "").replace(/__(high|low)$/i, "").replace(/_[ab]$/i, "");
+}
+function applyHideHat() {
+  const clothes = activeByCat.get("clothes");
+  const hat = activeByCat.get("hat");
+  const hit = clothes ? HIDE_HAT.has(clothesStem(clothes.key)) : false;
+  if (hat && hat.obj) hat.obj.visible = !hit;
+  document.body.dataset.hideHat = hit ? clothesStem(clothes.key) : "off";
+  return hit;
+}
+
+function hatOn() {
+  const hat = activeByCat.get("hat");
+  return !!(hat && hat.obj && hat.obj.visible !== false);
+}
+
+async function applyHatHair() {
+  const hat = activeByCat.get("hat");
+  const hair = activeByCat.get("hair");
+  if (!hatOn()) {
+    if (!hatHairRestore) return;
+    const back = hatHairRestore;
+    hatHairRestore = null;
+    if (hair && hair.key === back.to) {
+      IN_HAT_SWAP = true;
+      try { await equip(back.from); } finally { IN_HAT_SWAP = false; }
+    }
+    document.body.dataset.hairSwap = "restore:" + back.from;
+    return;
+  }
+  if (!hair) return;
+  const m = hair.key.match(/^(.+?)__(high|low)$/);
+  if (!m) return;
+  const stem = m[1], lod = m[2];
+  if (/_a$/.test(stem) || /_b$/.test(stem)) return;   // 已经是适配变体
+  for (const suf of ["_a", "_b"]) {
+    const cand = stem + suf + "__" + lod;
+    if (entries[cand] && entries[cand].glb) {
+      hatHairRestore = { from: hair.key, to: cand };
+      IN_HAT_SWAP = true;
+      try { await equip(cand); } finally { IN_HAT_SWAP = false; }
+      document.body.dataset.hairSwap = cand;
+      return;
+    }
+  }
+  document.body.dataset.hairSwap = "none";
+}
+
+/* 帽子裁发：PC 资源里确实有 model\texture\hair_hat_mask.dds，但它是 512×512 DXT1 的
+   纯色卡（#00BB52），不是按 UV 编码的空间遮罩，做不了逐像素裁发。
+   所以这里按"帽檐平面"在头部骨骼的局部空间里做真实裁切：头发顶点高于帽底就被 discard，
+   平面随头骨一起动，转头/走路都不会露馅。 */
+const HAIR_CUT = { on: { value: 0 }, y: { value: 0 }, inv: { value: new THREE.Matrix4() }, axis: { value: new THREE.Vector3(0, 1, 0) } };
+const _hp = new THREE.Vector3();
+const _ha = new THREE.Vector3();
+
+function patchHairCut(obj) {
+  obj.traverse(o => {
+    const m = o.material;
+    if (!m || m.userData.hairCut) return;
+    m.userData.hairCut = true;
+    m.onBeforeCompile = (sh) => {
+      sh.uniforms.uCutOn = HAIR_CUT.on;
+      sh.uniforms.uCutY = HAIR_CUT.y;
+      sh.uniforms.uCutInv = HAIR_CUT.inv;
+      sh.uniforms.uCutAxis = HAIR_CUT.axis;
+      sh.vertexShader = 'uniform mat4 uCutInv;\nuniform vec3 uCutAxis;\nvarying float vCutY;\n' + sh.vertexShader.replace(
+        '#include <skinning_vertex>',
+        '#include <skinning_vertex>\n  vCutY = dot((uCutInv * modelMatrix * vec4(transformed, 1.0)).xyz, uCutAxis);'
+      );
+      sh.fragmentShader = 'uniform float uCutOn;\nuniform float uCutY;\nvarying float vCutY;\n' +
+        sh.fragmentShader.replace('void main() {', 'void main() {\n  if (uCutOn > 0.5 && vCutY > uCutY) discard;');
+    };
+    m.needsUpdate = true;
+  });
+}
+
+/* 帽子坐稳：帽底压到头皮顶下方一点点（头发既然已经在帽檐处裁掉了，就不会再穿模） */
+function seatHat() {
+  const hat = activeByCat.get("hat");
+  const body = activeByCat.get("body");
+  if (!hat || !hat.obj || !body || !body.obj) return;
+  scene.updateMatrixWorld(true);
+  const bb = new THREE.Box3().setFromObject(body.obj);
+  const hb = new THREE.Box3().setFromObject(hat.obj);
+  if (bb.isEmpty() || hb.isEmpty()) return;
+  const dy = (bb.max.y - 0.15) - hb.min.y;
+  const parent = hat.obj.parent || scene;
+  const q = new THREE.Quaternion();
+  parent.getWorldQuaternion(q);
+  q.invert();
+  const v = new THREE.Vector3(0, dy, 0).applyQuaternion(q);
+  hat.obj.position.add(v);
+  scene.updateMatrixWorld(true);
+  document.body.dataset.hatSeat = `${bb.max.y.toFixed(3)}|${(hb.min.y + dy).toFixed(3)}`;
+}
+
+/* hat_mask.json 里的 mask id：这顶帽子游戏里就是要"自动裁发"的。
+   取不到（老帽/无裁发帽）说明它本来和完整发型兼容，不裁。 */
+function hatMaskOf(key) {
+  const stem = (key || "").replace(/__(high|low)$/i, "");
+  return (stem in HAT_MASK) ? HAT_MASK[stem] : null;
+}
+function hairHasVariant() {
+  const s = document.body.dataset.hairSwap || "";
+  return s !== "" && s !== "none" && !s.startsWith("restore:");
+}
+
+function updateHairCut() {
+  HAIR_CUT.on.value = 0;
+  document.body.dataset.hairCut = "off";
+  const hat = activeByCat.get("hat");
+  const hair = activeByCat.get("hair");
+  if (!hat || !hat.obj || !hatOn()) return;          // 帽子被 hide_hat 收起 → 不用裁
+  const forced = PARAMS.get("haircut");              // ?haircut=1 强制开，?haircut=0 强制关
+  const mask = hatMaskOf(hat.key);
+  document.body.dataset.hatMask = mask === null ? "none" : String(mask);
+  // 有 _a/_b 变体优先走变体（资源原生适配，最服帖）；没有变体、而这顶帽子带 mask id，
+  // 才退回几何裁切 —— 这就是"mask id 分组兜底"的开关口径。
+  const auto = mask !== null && !hairHasVariant();
+  if (forced !== "1" && (forced === "0" || !auto)) return;
+  const bone = findRigBone(ACC_BONE.hat) || findRigBone(["bip001 head"]);
+  if (!bone) return;
+  if (forced === "1") seatHat();                     // 只有强制实验模式才重坐帽子
+  if (!hair || !hair.obj) return;
+  patchHairCut(hair.obj);
+  scene.updateMatrixWorld(true);
+  const inv = new THREE.Matrix4().copy(bone.matrixWorld).invert();
+  // 世界朝上方向在头骨局部坐标里的向量：裁切面贴着帽檐、跟着头骨一起转
+  const m3 = new THREE.Matrix3().setFromMatrix4(inv);
+  const axis = new THREE.Vector3(0, 1, 0).applyMatrix3(m3).normalize();
+  const box = new THREE.Box3().setFromObject(hat.obj);
+  if (box.isEmpty()) return;
+  let low = Infinity;
+  for (let i = 0; i < 8; i++) {
+    _hp.set(i & 1 ? box.max.x : box.min.x, i & 2 ? box.max.y : box.min.y, i & 4 ? box.max.z : box.min.z);
+    _hp.applyMatrix4(inv);
+    const d = _ha.copy(_hp).dot(axis);
+    if (d < low) low = d;
+  }
+  let cut = low + 0.25;                              // 帽底往上裁，留一点余量让头发贴住帽檐
+  let shared = "";
+  if (mask !== null) {                               // 同一 mask id = 同一套裁发方案，共用最紧的切面
+    const prev = MASK_CUT[mask];
+    if (prev !== undefined && prev < cut) { cut = prev; shared = "|shared"; }
+    else MASK_CUT[mask] = cut;
+  }
+  HAIR_CUT.axis.value.copy(axis);
+  HAIR_CUT.y.value = cut;
+  HAIR_CUT.on.value = 1;
+  HAIR_CUT.inv.value.copy(inv);
+  document.body.dataset.hairCut = `${low.toFixed(3)}${shared}`;
+}
+
+/* 帽子落到"头发顶 / 头顶"上，而不是死记一个 y：换发型、戴大发型、换性别头型都不会陷进去。
+   默认关闭（?hatsnap=1 才开），落点仍用烘进顶点的锚点。 */
+function snapHat() {
+  const h = activeByCat.get("hat");
+  if (!h || !h.obj) return;
+  // 默认不重坐（落点仍用烘进顶点的锚点），但**必须**挂到 bip001 head，否则动作时帽子是死的。
+  // 逐件偏移（hat_offsets.json / localStorage）以世界系叠在原生锚点上，再按绑定姿势挂头骨。
+  if (PARAMS.get("hatsnap") !== "1") {
+    const off = HAT_OFF[h.key] || [0, 0, 0];
+    toScene(h.obj);
+    h.obj.position.x += off[0] || 0;
+    h.obj.position.y += off[1] || 0;
+    h.obj.position.z += off[2] || 0;
+    scene.updateMatrixWorld(true);
+    const bone = attachToBindBone(h.obj, ACC_BONE.hat);
+    if (bone) { h.bone = bone.name; recordAccBone(); }
+    document.body.dataset.hatOff = `${off[0] || 0}|${off[1] || 0}|${off[2] || 0}`;
+    return;
+  }
+  toScene(h.obj);
+  scene.updateMatrixWorld(true);
+  const hb = new THREE.Box3().setFromObject(h.obj);
+  if (hb.isEmpty()) return;
+  let top = null;
+  for (const cat of ["hair", "body"]) {
+    const a = activeByCat.get(cat);
+    if (!a || !a.obj) continue;
+    scene.updateMatrixWorld(true);
+    const b = new THREE.Box3().setFromObject(a.obj);
+    if (b.isEmpty()) continue;
+    top = top === null ? b.max.y : Math.max(top, b.max.y);
+  }
+  if (top === null) return;
+  const gap = parseFloat(PARAMS.get("hatgap") || "0.35");   // 帽底压进发顶多少（单位同角色空间）
+  h.obj.position.y += (top - gap) - hb.min.y;
+  scene.updateMatrixWorld(true);
+  reattachAccessory("hat");
+  document.body.dataset.hatSnap = `${top.toFixed(3)}|${(top - gap).toFixed(3)}`;
+}
+
+/* 换过身体/动作骨表后，全部配饰重新落位并重新挂骨 */
+function rebindAccessories() {
+  scene.updateMatrixWorld(true);
+  for (const cat of Object.keys(ACC_BONE)) {
+    const a = activeByCat.get(cat);
+    if (!a || !a.obj) continue;
+    toScene(a.obj);
+    if (cat === "brooch") snapBrooch();      // 贴面后自己会 attach
+    else if (cat === "glasses") snapGlasses(); // 换脸后按新脸的眼位/脸皮重坐，自己会 attach
+    else if (cat === "hat") snapHat();
+    else reattachAccessory(cat);
+  }
+  scene.updateMatrixWorld(true);
+  updateHairCut();
+}
+
+function snapBrooch() {
+  const b = activeByCat.get("brooch");
+  if (!b || !b.obj) return;
+  const surf = chestSurface();
+  if (!surf) return;
+  toScene(b.obj);                            // 可能正挂在骨骼上，先回 scene 再按世界坐标重算
+  scene.updateMatrixWorld(true);
+  const box = new THREE.Box3().setFromObject(b.obj);
+  if (box.isEmpty()) return;
+  const ctr = box.getCenter(new THREE.Vector3());
+  // 基准别针位：原生 socket（女 -0.847/13.021，男 -0.808/13.090）；逐件偏移叠在上面，
+  // z 永远贴当前这件衣服的胸面。
+  const female = !!(b.key || "").startsWith("female");
+  // 逐件选择挂点：默认 slot 1（brooch），可在 offsets 里指定 slot 2（brooch_02）
+  const ent = BROOCH_OFF[b.key];
+  const slot = (ent && !Array.isArray(ent) && ent.slot === 2) ? 2 : 1;
+  const off = Array.isArray(ent) ? ent : ((ent && ent.off) || [0, 0, 0]);
+  const nat = BROOCH_NATIVE[female ? "female" : "male"][slot - 1];
+  const TX = nat[0] + off[0], TY = nat[1] + off[1];
+  const surfZ = chestSurfaceAt(TX, TY, 0.4) || surf.z;
+  b.obj.position.x += TX - ctr.x;
+  b.obj.position.y += TY - ctr.y;
+  // 不能把包围盒最低点对齐布面：胸针背面（别针/托）常比正面厚，那样整个正面就陷进衣服里。
+  // 改成把「中心」放到布面前 depth/2 + 1cm，正面全露、背面临界贴布。
+  const depth = Math.max(0.02, box.max.z - box.min.z);
+  b.obj.position.z += (surfZ + depth * 0.5 + 0.01) - ctr.z + off[2];
+  scene.updateMatrixWorld(true);
+  reattachAccessory("brooch");               // 挂到 bip001 spine1，跟动作一起动
+  window.__broochSnap = { surf, dz: b.obj.position.z, slot };
+  // 调试用：写进 DOM（浏览器自动化在隔离世界跑，只有 DOM 是共享的）
+  document.body.dataset.broochSnap = `${surfZ.toFixed(3)}|${b.obj.position.z.toFixed(3)}|${b.obj.position.x.toFixed(3)}|${b.obj.position.y.toFixed(3)}|s${slot}`;
+  document.body.dataset.broochBone = b.bone || "(none)";
+}
+
+/* ---------------- 眼镜坐脸（按当前这张脸的绑定姿势重坐） ----------------
+   眼镜是刚性件，落点全烘在顶点里：老修法（scripts\place_acc.py）只给 30 件按「类别统一锚点」
+   (0, 15.98, -0.05) 平移过顶点，其余 116 件保持原生头部空间坐标。问题在于脸不能通用一个 z：
+   female_body_28 眼角处面片前沿 z≈1.41、鼻梁 1.50–1.78，男脸同位置只要 1.01，
+   而镜片背面在 z≈1.36 —— 女脸上整片镜片埋进皮里，眼睑/脸颊从镜片里穿出来；
+   镜片中心 y=15.98 也低于眼睛骨 16.11，看起来就像「眼镜往下掉了」。
+   这里改成跟 snapBrooch 一个思路：按当前这张脸重坐
+     ① 眼睛骨 e_lbone_000 / e_rbone_000 的绑定位置 → 眼位 y、半边眼距（单镜片件按最近的那只眼对）；
+     ② 眼睛高度那一圈面片（|x| 0.20–0.80，避开鼻梁与耳侧）的最大 z →「脸皮前沿」；
+     ③ 眼镜最靠前的 0.24 厚那一层就是镜片区，用它的中心 y / 背面 z 去对眼位与脸皮。
+   全在绑定空间算，算完再 attach 到 head 骨，动作里照样刚性跟随。逐件微调走 glasses_offsets.json。 */
+const GLASS_GAP = parseFloat(PARAMS.get("ggap") || "") || 0.10;   // 镜片背面离脸皮的最小间隙
+const GLASS_SEAT_LIMIT = 0.45;                                     // 偏离眼位超过这个量就当造型件，不重坐
+let GLASSES_OFF = {};
+fetch(`./glasses_offsets.json?v=${Date.now()}`).then(r => r.ok ? r.json() : {}).then(j => {
+  GLASSES_OFF = j || {};
+  try { Object.assign(GLASSES_OFF, JSON.parse(localStorage.getItem("hpma_glasses_off") || "{}")); } catch (e) {}
+  if (activeByCat.get("glasses")) snapGlasses();
+}).catch(() => {});
+
+/* 眼睛骨的绑定世界位置（captureBind 时记在 body.userData.bindEye） */
+function eyeAnchor() {
+  const body = activeByCat.get("body");
+  const e = body && body.obj && body.obj.userData.bindEye;
+  if (!e || !e.l || !e.r) return null;
+  return { lx: e.l.x, rx: e.r.x, y: (e.l.y + e.r.y) / 2, z: (e.l.z + e.r.z) / 2 };
+}
+
+/* 眼睛高度那一圈脸皮的正面 z（|x| 0.20–0.80：躲开鼻梁正面和耳侧） */
+function faceFrontAtEye(eyeY) {
+  const body = activeByCat.get("body");
+  if (!body || !body.obj) return null;
+  scene.updateMatrixWorld(true);
+  const v = new THREE.Vector3();
+  let best = null;
+  body.obj.traverse(o => {
+    if (!o.isMesh || !o.geometry) return;
+    const pos = o.geometry.getAttribute("position");
+    if (!pos) return;
+    for (let i = 0; i < pos.count; i++) {
+      v.fromBufferAttribute(pos, i).applyMatrix4(o.matrixWorld);
+      if (Math.abs(v.y - eyeY) > 0.10) continue;
+      const ax = Math.abs(v.x);
+      if (ax < 0.20 || ax > 0.80) continue;
+      if (best === null || v.z > best) best = v.z;
+    }
+  });
+  return best;
+}
+
+/* 眼镜「镜片区」= 最靠前的 0.24 厚那一层：返回中心 x/y 与背面 z */
+const _gp = new THREE.Vector3();
+function glassesLensBox(obj) {
+  const all = new THREE.Box3(), v = new THREE.Vector3();
+  const pts = [];
+  obj.traverse(o => {
+    if (!o.isMesh || !o.geometry) return;
+    const pos = o.geometry.getAttribute("position");
+    if (!pos) return;
+    for (let i = 0; i < pos.count; i++) {
+      v.fromBufferAttribute(pos, i).applyMatrix4(o.matrixWorld);
+      all.expandByPoint(v);
+      pts.push(v.x, v.y, v.z);
+    }
+  });
+  if (all.isEmpty() || !pts.length) return null;
+  const front = all.max.z - 0.24;
+  const fb = new THREE.Box3();
+  for (let i = 0; i < pts.length; i += 3) {
+    if (pts[i + 2] >= front) fb.expandByPoint(_gp.set(pts[i], pts[i + 1], pts[i + 2]));
+  }
+  if (fb.isEmpty()) return null;
+  const c = fb.getCenter(new THREE.Vector3());
+  return { cx: c.x, cy: c.y, back: fb.min.z, front: fb.max.z, width: fb.max.x - fb.min.x };
+}
+
+/* 挂到 head 骨：按「绑定姿势」算局部矩阵。
+   Object3D.attach 用的是骨骼**当前**的世界矩阵，如果此刻头正在动作里点着头，
+   挂完的局部矩阵就被当时的姿态吃进去，等动作回到绑定姿势时眼镜会偏出去 —— 偏差量和
+   待机呼吸时头骨的位移一个数量级（实测头骨世界位置在 y 14.96~15.08 之间晃 0.2）。
+   这里改用 head 骨的绑定世界矩阵求逆，再 decompose 成局部 TRS。 */
+function attachGlassesToHead(obj) {
+  const bone = findRigBone(ACC_BONE.glasses);
+  if (!bone) return false;
+  obj.updateMatrix();                        // 现在挂在 scene 上，matrix 就是绑定空间世界矩阵
+  const bd = anim.bind.get(bone);
+  const bindWorld = (bd && bd.m) ? bd.m : bone.matrixWorld;
+  obj.matrix.premultiply(new THREE.Matrix4().copy(bindWorld).invert());
+  obj.matrix.decompose(obj.position, obj.quaternion, obj.scale);
+  bone.add(obj);
+  return true;
+}
+
+/* 默认只做两件事：把逐件偏移（json/localStorage）叠在**原生落点**上，再按绑定姿势挂到 head 骨。
+   —— 原生落点本来就是设计师按「可见瞳孔」摆的：72 件眼镜的原生镜片中心 y 相对眼睛骨
+      中位数是 +0.121（见 README §41），拿眼骨当靶子会整体抬高 0.12~0.13，实测用户一眼就看出偏高。
+   几何重坐（眼位/脸皮前沿）留成实验开关 ?seat=1，需要时再打开。 */
+function snapGlasses() {
+  const g = activeByCat.get("glasses");
+  if (!g || !g.obj) return;
+  toScene(g.obj);                            // 可能正挂在骨骼上，先回 scene（世界=局部）
+  scene.updateMatrixWorld(true);
+  if (PARAMS.get("seat") !== "1") {
+    const off = GLASSES_OFF[g.key] || [0, 0, 0];
+    g.obj.position.x += off[0] || 0;
+    g.obj.position.y += off[1] || 0;
+    g.obj.position.z += off[2] || 0;
+    scene.updateMatrixWorld(true);
+    attachGlassesToHead(g.obj);              // 只挂骨，不改落点 → 动作里刚性跟随且不想偏
+    const o = (off[0] || off[1] || off[2]) ? `|${(+off[0] || 0).toFixed(3)}|${(+off[1] || 0).toFixed(3)}|${(+off[2] || 0).toFixed(3)}` : "";
+    document.body.dataset.glassesSeat = "native" + o;
+    return;
+  }
+  const eye = eyeAnchor();
+  if (!eye) { attachGlassesToHead(g.obj); document.body.dataset.glassesSeat = "noeye"; return; }
+  const lens = glassesLensBox(g.obj);
+  if (!lens) { attachGlassesToHead(g.obj); document.body.dataset.glassesSeat = "nobox"; return; }
+  // 帽檐上的墨镜（287_lnlg）、带假胡子的搞怪件（76）本来就故意不在眼位，保留原生落点
+  if (Math.abs(lens.cy - eye.y) > GLASS_SEAT_LIMIT) {
+    attachGlassesToHead(g.obj);
+    document.body.dataset.glassesSeat = `skip|${lens.cy.toFixed(2)}|${eye.y.toFixed(2)}`;
+    return;
+  }
+  const off = GLASSES_OFF[g.key] || [0, 0, 0];
+  // 对称件对双眼中点；单镜片（|cx|>0.15）对最近的那只眼，别把它拉到脸中间
+  const tx = Math.abs(lens.cx) > 0.15 ? (lens.cx > 0 ? eye.rx : eye.lx) : (eye.lx + eye.rx) / 2;
+  const faceZ = faceFrontAtEye(eye.y);
+  const dx = tx - lens.cx + off[0];
+  const dy = eye.y - lens.cy + off[1];
+  const dz = (faceZ === null ? lens.back : faceZ + GLASS_GAP) - lens.back + off[2];
+  g.obj.position.x += dx;
+  g.obj.position.y += dy;
+  g.obj.position.z += dz;
+  scene.updateMatrixWorld(true);
+  attachGlassesToHead(g.obj);                // 挂到 bip001 head，动作里刚性跟随
+  document.body.dataset.glassesSeat =
+    `${dx.toFixed(3)}|${dy.toFixed(3)}|${dz.toFixed(3)}|face${faceZ === null ? "-" : faceZ.toFixed(3)}|back${(lens.back + dz).toFixed(3)}`;
+}
+
+/* ?edit=1 逐件校准面板：方向键微调 x/y，PgUp/PgDn 调 z，Shift 加大步长，S 保存 */
+function initBroochEditor() {
+  const hud = document.createElement("div");
+  hud.id = "brEdit";
+  hud.style.cssText = "position:fixed;left:12px;bottom:12px;z-index:9;font:12px/1.6 ui-monospace,monospace;" +
+    "color:#dfe8ff;background:rgba(0,0,0,.62);padding:8px 10px;border-radius:6px;max-width:680px;white-space:pre-wrap";
+  document.body.appendChild(hud);
+  const render = () => {
+    const b = activeByCat.get("brooch");
+    const k = b ? b.key : "(未穿胸针)";
+    const o = BROOCH_OFF[k] || [0, 0, 0];
+    hud.textContent = `逐件校准：${k}\n偏移 [${o.map(v => v.toFixed(3)).join(", ")}]` +
+      `\n方向键 x/y · PgUp/PgDn z · 按住 Shift = 0.05 · S 保存`;
+  };
+  render();
+  window.addEventListener("keydown", ev => {
+    const b = activeByCat.get("brooch");
+    if (!b) return;
+    const step = ev.shiftKey ? 0.05 : 0.01;
+    let o = (BROOCH_OFF[b.key] || [0, 0, 0]).slice();
+    if (ev.key === "ArrowLeft") o[0] -= step;
+    else if (ev.key === "ArrowRight") o[0] += step;
+    else if (ev.key === "ArrowUp") o[1] += step;
+    else if (ev.key === "ArrowDown") o[1] -= step;
+    else if (ev.key === "PageUp") o[2] += step;
+    else if (ev.key === "PageDown") o[2] -= step;
+    else if (ev.key === "s" || ev.key === "S") {
+      let all = {};
+      try { all = JSON.parse(localStorage.getItem("hpma_brooch_off") || "{}"); } catch (e) {}
+      all[b.key] = o.map(v => +v.toFixed(3));
+      localStorage.setItem("hpma_brooch_off", JSON.stringify(all));
+      BROOCH_OFF[b.key] = all[b.key];
+      document.body.dataset.broochOffsets = JSON.stringify(all);   // 供自动化读回
+      snapBrooch(); render(); ev.preventDefault(); return;
+    } else return;
+    BROOCH_OFF[b.key] = o;
+    snapBrooch(); render(); ev.preventDefault();
+  }, true);
+}
+
+function refreshSlots() {
+  const box = document.getElementById("slots");
+  const lines = [];
+  for (const [cat, v] of activeByCat) {
+    const zh = entries[v.key]?.zh;
+    lines.push(`<div class="line"><b>${CAT_LABEL[cat] || cat}</b>：${zh ? `<span class="zh">${zh}</span> · ` : ""}${entries[v.key]?.item_short || v.key}</div>`);
+  }
+  if (eyesObj.obj) lines.push(`<div class="line"><b>眼球</b>：${PARAMS.get("eyes") === "1" ? "虹膜贴花" : "白眼球+虹膜（缩放 0.78）"}（挂 e_lbone/e_rbone）</div>`);
+  if (skinObj.keys.length) {
+    const names = skinObj.keys.map(k => {
+      const tok = (entries[k] && entries[k].token) || k;
+      const cn = BODY_PARTS.vocab[tok] || (entries[k] && entries[k].cn) || "";
+      return cn ? `${cn}（${tok}）` : tok;
+    });
+    lines.push(`<div class="line"><b>皮肤层</b>：${names.join(" + ")}</div>`);
+  }
+  if (activeByCat.get("body")) {
+    lines.push(`<div class="line"><b>肤色</b>：第 ${toneState.n} 档${toneState.real ? "（真实图集）" : "（近似：该脸只带 1 张图集）"}</div>`);
+  }
+  if (anim.cur) lines.push(`<div class="line"><b>动作</b>：<span id="poseline"></span></div>`);
+  box.innerHTML = lines.length ? lines.join("") : "尚未穿戴任何部件";
+}
+
+async function equip(key) {
+  const e = entries[key];
+  if (!e || !e.glb) return;
+  document.getElementById("err").textContent = "";
+  const cat = e.category;
+  const cur = activeByCat.get(cat);
+  if (cur && cur.key === key) {                 // toggle off
+    if (cur.obj.parent) cur.obj.parent.remove(cur.obj);
+    activeByCat.delete(cat);
+    if (cat === "body") clearEyes();
+    if (cat === "clothes") clearSkin();
+    if (!IN_HAT_SWAP && (cat === "hat" || cat === "clothes")) {      // 摘帽/脱外套 → 发型与帽子状态都要重算
+      applyHideHat();
+      await applyHatHair();
+      updateHairCut();
+    }
+    done();
+    return;
+  }
+  const obj = await loadObj(e.glb).catch(err2 => { err(`${key}: ${err2}`); return null; });
+  if (!obj) return;
+  if (cur) { if (cur.obj.parent) cur.obj.parent.remove(cur.obj); }
+  // object3D is cached and may be re-added; reset transform
+  obj.position.set(0, 0, 0); obj.rotation.set(0, 0, 0);
+  scene.add(obj);
+  activeByCat.set(cat, { key, obj });
+  // two body types: girl rig = 190 bones, boy rig = 157 bones. Keep the wardrobe on
+  // the same type as the chosen face, otherwise proportions and bone names drift.
+  if (cat === "body") {
+    const g = e.gender;
+    if (g && sex !== g) { sex = g; document.getElementById("sex").value = g; renderList(); }
+  } else {
+    const body = activeByCat.get("body");
+    const bg = body && entries[body.key] && entries[body.key].gender;
+    if (bg && e.gender && bg !== e.gender) {
+      err(`体型不一致：${e.item_short} 属于 ${e.gender}，当前脸是 ${bg}（女 190 骨 / 男 157 骨，混穿比例会失真）`);
+    }
+  }
+  if (cat === "body") { await attachEyes(e); applyTone(); }
+  if (cat === "clothes") await applySkin(e);
+  if (cat === "clothes" || cat === "brooch") snapBrooch();
+  // 配饰统一挂到骨骼（帽子/眼镜/耳饰→head，胸针→spine1，挂饰→spine1），换身体后骨表会变，全部重挂
+  if (cat === "body") rebindAccessories();
+  else if (cat === "hat") snapHat();
+  else if (cat === "glasses") snapGlasses();          // 眼镜按当前这张脸重坐（眼位/脸皮前沿）
+  else if (cat === "hair") { if (activeByCat.get("hat")) snapHat(); }
+  else if (cat !== "clothes" && cat !== "brooch") reattachAccessory(cat);
+  // 戴帽子/换发型/换衣服时联动：hide_hat（衣服藏帽）+ auto_cut_hair（发型变体 / mask id 兜底）
+  if (!IN_HAT_SWAP && cat === "clothes") { applyHideHat(); await applyHatHair(); updateHairCut(); }
+  if (!IN_HAT_SWAP && cat === "hat") { applyHideHat(); await applyHatHair(); updateHairCut(); }
+  if (!IN_HAT_SWAP && cat === "hair") {
+    if (activeByCat.get("hat")) await applyHatHair();
+    updateHairCut();
+  }
+  if ((PARAMS.get("hidemesh") || "").split(",").includes(cat)) obj.visible = false;
+  done();
+}
+
+/* Which skin patch does this garment need?
+   权威来源是 PC 端自己的 `<item>_body.gim`：它把 garment 保留的裸皮指向
+   `appearance\<sex>\high\only_body\only_*.mesh`（见 models_pc/body_parts.json 与
+   `身体部位与服装对应.md`）。只有没声明的少数件才走兜底。 */
+function skinPlan(clothes) {
+  if (!SKIN_ON || !clothes) return [];
+  const g = clothes.gender === "boy" ? "boy" : "girl";
+  const lod = clothes.lod || "high";
+  const keyOf = (tok, l) => `${g}_${tok}__${l}`;
+  const resolve = (tok, l) => {
+    for (const tl of [l, "high", "low"]) if (entries[keyOf(tok, tl)] && entries[keyOf(tok, tl)].glb) return keyOf(tok, tl);
+    return null;
+  };
+  const uniq = (list) => {
+    const out = [];
+    for (const k of list) {
+      const base = k.replace(/__\w+$/, "");
+      if (!out.some(p => p.replace(/__\w+$/, "") === base)) out.push(k);
+    }
+    return out;
+  };
+  // 1) 权威口径：这件衣服自己的 `_body.gim` 声明了要保留哪些身体（PC 端原配置，
+  //    也就是游戏里真实的露肤方案）。查到就直接按它挂，不再用骨骼覆盖估算。
+  let cands = [];
+  const it = clothes.item_short || "";
+  const decl = BODY_PARTS.items[`${it}__${lod}`] || BODY_PARTS.items[`${it}__high`]
+            || BODY_PARTS.items[`${it}__low`];
+  if (decl && decl.length) {
+    for (const tok of decl) {
+      const k = resolve(tok, lod);
+      if (k) cands.push(k);
+    }
+    if (cands.length) return uniq(cands);
+  }
+  // 2) 兜底：这件衣服没声明（31 条没有 `_body.gim` / 8 条声明成空）时，PC 端的 manifest
+  //    不带 `cov`（那是旧 APK 库的骨骼覆盖字段），所以没有覆盖信息可用。这里只挂一件
+  //    「手+腿+胸口」的整片补皮（游戏自己的 only_shoutuixiongkou*），一件补片同时补齐
+  //    手、前臂、腿、胸，避免多片互相穿插/z-fighting；穿在里面的部分会被衣服自然盖住。
+  const fallbackParts = ["only_shoutuixiongkou_03", "only_shoutuixiongkou_02", "only_shoutuixiongkou",
+                         "only_shou"];
+  for (const n of fallbackParts) {
+    const k = resolve(n, lod);
+    if (k) { cands.push(k); break; }
+  }
+  return uniq(cands);
+}
+
+/* ---------------- skin tone = the face's own 8 atlases ----------------
+   A face ships `_01.._08` atlases; those ARE the game's eight skin tones (same UV
+   layout, monotonically darker), not make-up presets. `scripts/export_tones_pc.py`
+   ships them as WebP (`models_pc/tones/`), so a tone is rendered by swapping
+   `material.map`, and the bare-skin patches then reuse that same texture — one atlas,
+   one tone, face and hand cannot drift apart.
+   Faces without the 8 variants fall back to a colour multiply using `skin_rgb`
+   (sampled per atlas) and the measured tone curve in the manifest meta. */
+const TONE_FALLBACK = [
+  [1, 1, 1], [0.9344, 0.9024, 0.8545], [0.8984, 0.8369, 0.7391], [0.7963, 0.6867, 0.6059],
+  [0.68, 0.5882, 0.536], [0.5586, 0.453, 0.4022], [0.4089, 0.3232, 0.3023], [0.3179, 0.259, 0.2537],
+];
+let toneRatios = TONE_FALLBACK;
+let tone = Math.max(1, Math.min(8, parseInt(PARAMS.get("tone") || "1", 10) || 1));
+let toneState = { n: tone, real: false };
+let toneFaces = [];        // face meshes that a late-loading atlas must repaint
+const toneTex = new Map();
+const texLoader = new THREE.TextureLoader();
+
+function toneAtlas(path) {
+  if (toneTex.has(path)) return toneTex.get(path);
+  // Plain Image + Texture: TextureLoader's onLoad never fires in this page context
+  // (the request completes but `texture.image` stays null, which renders the face
+  // black), while a hand-built Image callback is reliable.
+  const tex = new THREE.Texture();
+  tex.flipY = false;                     // glTF textures are stored top-down; match them
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = 4;
+  const img = new Image();
+  const dbgEl = document.getElementById("dbg");
+  if (dbgEl && PARAMS.get("dbg") === "1") dbgEl.textContent = "toneAtlas start " + path;
+  img.onload = () => {
+    tex.image = img;
+    tex.needsUpdate = true;
+    if (dbgEl && PARAMS.get("dbg") === "1") dbgEl.textContent = `toneAtlas loaded ${path} ${img.naturalWidth}x${img.naturalHeight} tex.image=${!!tex.image}`;
+    for (const o of toneFaces) {
+      if (o.material.map !== tex) { o.material.map = tex; o.material.needsUpdate = true; }
+    }
+    renderer.render(scene, camera);
+  };
+  img.onerror = () => {
+    err(`肤色图集加载失败 ${path}`);
+    if (dbgEl && PARAMS.get("dbg") === "1") dbgEl.textContent = "toneAtlas ERROR " + path;
+  };
+  img.src = `/${path}`;
+  toneTex.set(path, tex);
+  return tex;
+}
+
+function meshesOf(obj) {
+  const out = [];
+  obj.traverse(o => { if (o.isMesh && o.material) out.push(o); });
+  return out;
+}
+
+function applyTone() {
+  const bodyRef = activeByCat.get("body");
+  const e = bodyRef ? entries[bodyRef.key] : null;
+  const forced = (PARAMS.get("stint") || "").split(",").map(Number).filter(n => !isNaN(n)).length === 3
+    ? PARAMS.get("stint").split(",").map(Number) : null;
+  let rgb = null, atlas = null, real = false;
+  if (e) {
+    const hit = (e.tones || []).find(t => t.n === tone);
+    if (hit && hit.rgb) { rgb = hit.rgb; atlas = hit.tex; real = true; }
+    else if (e.skin_rgb) {
+      const r = toneRatios[tone - 1] || [1, 1, 1];
+      rgb = e.skin_rgb.map((c, k) => Math.min(255, c * r[k]));
+    }
+  }
+  // tone 1 is the atlas already embedded in the GLB, so no swap (and no WebP re-encode)
+  if (atlas && tone === 1 && /_0?1\.(tga|astc)$/i.test(e.texture || "")) atlas = null;
+  if (forced) { rgb = forced; atlas = null; real = false; }
+  toneState = { n: tone, real };
+  // face: the tone's own atlas, or a multiply of the single atlas
+  if (bodyRef && bodyRef.obj && e) {
+    const base = e.skin_rgb || [255, 255, 255];
+    const mul = rgb ? [rgb[0] / Math.max(1, base[0]), rgb[1] / Math.max(1, base[1]), rgb[2] / Math.max(1, base[2])]
+                    : [1, 1, 1];
+    toneFaces = meshesOf(bodyRef.obj);
+    for (const m of toneFaces) {
+      const mat = m.material;
+      if (!m.userData.origMap) m.userData.origMap = mat.map;
+      if (atlas) {
+        mat.map = toneAtlas(atlas);
+        mat.color.setRGB(1, 1, 1);
+      } else {
+        mat.map = m.userData.origMap || mat.map;
+        mat.color.setRGB(Math.min(2.5, mul[0]), Math.min(2.5, mul[1]), Math.min(2.5, mul[2]),
+                         THREE.SRGBColorSpace);
+      }
+      mat.needsUpdate = true;
+    }
+    if (PARAMS.get("dbg") === "1") {
+      const m0 = meshesOf(bodyRef.obj)[0], mat = m0.material, map = mat.map;
+      document.getElementById("dbg").textContent = JSON.stringify({
+        tone, atlas: atlas ? atlas.split("/").pop() : null, color: mat.color.getHexString(),
+        hasMap: !!map, mapImg: map && map.image ? "yes" : "no",
+        map: map && map.image ? String(map.image.currentSrc || map.image.src).split("/").pop() : null,
+        loaded: !!(map && map.image && map.image.width), cs: map ? map.colorSpace : null,
+        flipY: map ? map.flipY : null, matType: mat.type, opacity: mat.opacity, transparent: mat.transparent,
+        emissive: mat.emissive ? mat.emissive.getHexString() : null,
+      });
+    }
+  }
+  // 皮肤层：only_body 补片的 UV 就落在身体皮肤图集的 UV 空间里（实测 only_shou 在
+  // female_body_01_01.dds 上采样即肤色），所以直接把脸的同一张贴图/同一个乘色给补片，
+  // 而不是把白模涂个颜色 —— 否则图里的肤色 + 染色 = 双重上色，手会比脸深一档。
+  const refMat = (toneFaces.length && toneFaces[0].material) ? toneFaces[0].material : null;
+  for (const o of skinObj.objs) {
+    for (const m of meshesOf(o)) {
+      if (refMat && refMat.map) m.material.map = refMat.map;
+      if (refMat) m.material.color.copy(refMat.color);
+      m.material.needsUpdate = true;
+    }
+  }
+}
+
+async function applySkin(clothes) {
+  clearSkin();
+  const plan = skinPlan(clothes);
+  if (!plan.length) return;
+  for (const key of plan) {
+    const obj = await loadObj(entries[key].glb).catch(() => null);
+    if (!obj) continue;
+    scene.add(obj);
+    skinObj.objs.push(obj);
+    skinObj.keys.push(key);
+  }
+  applyTone();
+}
+
+function clearSkin() {
+  for (const o of skinObj.objs) scene.remove(o);
+  skinObj.objs = []; skinObj.keys = [];
+}
+
+async function attachEyes(bodyEntry) {
+  clearEyes();
+  // The head mesh already carries the eyeball island, and the face atlas already paints
+  // the eye. The split eyeball part is auxiliary: it sits ~0.4 units *behind* the face
+  // plane and its texture is an iris decal on transparency. Two variants are exported:
+    //   ?eyes=1       iris decal (what the game ships)
+  //   ?eyes=sclera  white sclera + iris composed, for inspection
+  const mode = PARAMS.get("eyes") == null ? "sclera" : PARAMS.get("eyes");
+  if (mode === "0" || mode === "off") return;
+  if (bodyEntry.lod !== "high") return;
+  // faces 31-37 use a different eye placement; the shared 0.78 fit puts them on the
+  // inner corner, so those keep the painted-eye look only
+  if (/_body_3[1-7]\.?$/.test(bodyEntry.item_short || "")) return;
+  const variant = PARAMS.get("eyevar") || "";
+  const key = bodyEntry.item_short + "__" + (variant || (mode !== "1" ? "high_eyes_sclera" : "high_eyes"));
+  const e = entries[key];
+  if (!e || !e.glb) return;
+  const obj = await loadObj(e.glb).catch(() => null);
+  if (!obj) return;
+  const sc = parseFloat(PARAMS.get("eyescl") || (mode !== "1" ? "0.78" : "1"));
+  if (sc && sc !== 1) {
+    // scale about the eye pair's own centre, otherwise the whole pair slides down
+    const b = new THREE.Box3().setFromObject(obj);
+    if (!b.isEmpty()) {
+      const c = b.getCenter(new THREE.Vector3());
+      obj.scale.setScalar(sc);
+      obj.position.set(c.x * (1 - sc), c.y * (1 - sc), c.z * (1 - sc));
+    }
+  }
+  scene.add(obj);
+  eyesObj.obj = obj;
+}
+
+function clearEyes() {
+  if (eyesObj.obj) { scene.remove(eyesObj.obj); eyesObj.obj = null; }
+}
+
+/* ---------------- 动作播放 ----------------
+   数据：web/anim_pc/<clip>.json（scripts/export_anim_pc.py 生成）
+     bones[190]   骨骼名，与 GLB 同名
+     times[K]     关键帧时间轴（秒），源数据原样，不重采样
+     data[K]      base64 float32，每帧 bones×10：pos3 + quat4 + scale3（世界空间）
+   GLB 里的骨骼是扁平节点：root 是 rig_xxx，所有 joint 是它的兄弟、各自带完整世界
+   矩阵（见 glb_writer.py）。所以这里按名字把多套 GLB（身体/衣服/头发）的同名骨一起
+   写 bone.matrix，播放时按时间在相邻关键帧之间插值，切换动作时做 0.25s 交叉淡入。 */
+const anim = {
+  clips: new Map(), cur: null, prev: null, prevT: 0,
+  t: 0, playing: true, speed: 1, loop: true, fade: 1,
+  groups: [], meta: new Map(), boneList: [], bonesByName: new Map(),
+  bind: new WeakMap(), lastIdle: null, kind: new Map(),
+};
+const FADE = 0.25;
+let curAnimGroup = PARAMS.get("group") || "idle";
+// 性别过滤：?asex=female|male（也在面板的 全部/女/男 按钮里切，存 localStorage）
+let curAnimSex = PARAMS.get("asex") || localStorage.getItem("animSex") || "";
+
+function b64ToF32(b64) {
+  const s = atob(b64);
+  const u8 = new Uint8Array(s.length);
+  for (let i = 0; i < s.length; i++) u8[i] = s.charCodeAt(i);
+  return new Float32Array(u8.buffer, 0, u8.length / 4);
+}
+
+/* 绑定姿势（AP 在 GLB 里是扁平的：bone.matrix 就是世界矩阵） */
+function captureBind(root) {
+  const eye = {};
+  root.traverse(o => {
+    if (!o.isBone) return;
+    // 眼镜坐脸要按「绑定姿势」算，不能被当前动作带偏：骨是扁平的，o.matrix 就是绑定世界矩阵
+    const nm = o.name.toLowerCase().replace(/\s+/g, "_");
+    if (nm === "e_lbone_000" || nm === "e_rbone_000") {
+      eye[nm === "e_lbone_000" ? "l" : "r"] = new THREE.Vector3().setFromMatrixPosition(o.matrix);
+    }
+    if (!anim.bind.has(o)) {
+      o.matrix.decompose(new THREE.Vector3(), new THREE.Quaternion(), new THREE.Vector3());
+      const bd = {};
+      const p = new THREE.Vector3(), q = new THREE.Quaternion(), s = new THREE.Vector3();
+      o.matrix.decompose(p, q, s);
+      bd.p = p; bd.q = q; bd.s = s; bd.m = o.matrix.clone();
+      anim.bind.set(o, bd);
+    }
+    o.matrixAutoUpdate = false;
+  });
+  if (eye.l && eye.r) root.userData.bindEye = eye;
+}
+
+/* 场景里现在有哪些骨（换装后要重算） */
+function rebuildBones() {
+  const by = new Map();
+  scene.traverse(o => {
+    if (o.isSkinnedMesh && o.skeleton) for (const b of o.skeleton.bones) {
+      if (!by.has(b.name)) by.set(b.name, []);
+      if (!by.get(b.name).includes(b)) by.get(b.name).push(b);
+    }
+  });
+  anim.bonesByName = by;
+  anim.boneList = [...by.keys()];
+  /* 长拖尾裙的黑片来自两类骨：①biped / bip001_prop* 这类挂点/根重复骨，动画轨里给的是
+     别的预制体留下的垃圾位移（实测能飞到 20 单位外）；②bone_*_clothes/sleeves 这类布料链，
+     动画是按另一件衣服的布片长度烘的。两者都可能把裙摆顶点拽成刀片。
+     处理：挂点骨完全不驱动；布料骨只保留旋转，位移压回「绑定位置 + 根骨位移」附近。 */
+  anim.kind = new Map();
+  for (const n of anim.boneList) {
+    anim.kind.set(n, PROP_RE.test(n) ? "prop"
+      : (FACE_RE.test(n) ? "face"
+        : (CLOTH_RE.test(n) ? "cloth" : null)));
+  }
+}
+/* 挂点骨：只有 bip001_prop*。注意**不能**把 `biped` 算进来 —— 它是身体骨架的根，
+   冻住它等于把整具身体钉回绑定位置，头发/裙摆/四肢会瞬间炸成尖刺（turca 72s 实测）。 */
+const PROP_RE = /^(bip001_prop\d*)$/i;
+/* 布料/装饰链骨 = 衣服自带的布片骨：bone_l/r/m_*（裙、披风、袖、包、围巾、领巾、帽饰……）
+   以及 a_/b_/c_/d_/e_/f_/j_/ff_ 那几族链。以前只写了 clothes|pifeng|sleeves|bag，
+   scarf / collar / hats / hair / upperarm 全部漏掉 —— 男装 111_mhdg 的围巾骨
+   bone_m_scarf01_01 的轨把它平移到了 x≈+9.9，100% 权重挂这根骨的顶点被拽出 10 单位，
+   就是屏幕胸口那条越向右越尖的细刀片。面部骨（lips_bone_* / eyebrow_bone_* / kk_face）不在此列。 */
+const CLOTH_RE = /^(bone_[lmr]_|a_[lmr]bone|b_[lmr]bone|c_[lmr]bone|d_[lm]bone|e_[lr]bone|f_[lr]bone|j_mbone|ff_[lr]point)/i;
+/* 面部微骨（眉毛 e_*bone_* / 嘴唇 lips_bone_* / kk_face）：同一套骨名，但每张脸的绑定基准不同。
+   整段舞的轨里它们带的是「另一张脸」的位移，套到 female_body_28 上会把眉毛/嘴拽成两根
+   从头顶往上支棱的长刀片（dance_turca / dance_wakaka 80s 处实测）。处理：只保留旋转，
+   位置与缩放退回绑定姿势。 */
+const FACE_RE = /^(e_[lmr]bone_|lips_bone_|kk_face)/i;
+const SAFE_R = parseFloat(PARAMS.get("safeR") || "") || 0.8;
+/* 裙摆/头发被拽成刀片的根因已在 GLB 蒙皮层面修掉（reskin_glb.py），网页侧的冻结规则
+   反而会掐断父子链、把头发和裙撑拉成更大的片。默认关闭，需要时 ?safe=1 打开。 */
+const SAFE_ON = PARAMS.get("safe") === "1";
+/* 布料骨旋转门限：与绑定姿势夹角超过 SAFE_DEG 度就判定为「别的衣服的轨」，退回绑定。
+   |q1·q2| = cos(夹角/2)，所以 60° → cos30° ≈ 0.866。 */
+const SAFE_DEG = parseFloat(PARAMS.get("safeDeg") || "") || 60;
+const SAFE_W = Math.cos((SAFE_DEG / 2) * Math.PI / 180);
+const SAFE_CLOTH = PARAMS.has("safeCloth") ? parseInt(PARAMS.get("safeCloth"), 10) : 0;
+/* 布料骨「只钳位移」：保留旋转（布片还能跟着身体摆），但把骨的位置钉回绑定处。
+   这批 clip 里 cloth 链的平移轨常是别的衣服/别的骨架长度烘出来的，位移一大就把布片拽飞；
+   旋转一般可信，所以只钳平移。?clamp=0 关掉。 */
+const CLOTH_CLAMP = PARAMS.get("clamp") === "1";
+/* 布料骨动画阻尼：把这批「按别的骨架/别的衣服烘出来的」布片轨按比例往绑定姿势拉回。
+   0 = 原样跟随（会撕），1 = 完全冻住（会塌），中间值兼顾造型与跟随。?damp=0.65 */
+const DAMP = Math.min(1, Math.max(0, parseFloat(PARAMS.get("damp") || "0")));
+/* 布料骨只留旋转：位置/缩放都退回绑定姿势。这批轨的位移和缩放常是按别的骨架长度烘的，
+   斜率放大就会把裙片摊成扇子。?clothrot=1 启用；?clothturn 可再按比例收旋转幅度。 */
+const CLOTH_ROT = PARAMS.get("clothrot") === "1";
+const CLOTH_TURN = Math.min(1, Math.max(0, parseFloat(PARAMS.get("clothturn") || "1")));
+const safeHits = { prop: 0, cloth: 0, keep: 0 };
+
+async function getClip(name) {
+  if (anim.clips.has(name)) return anim.clips.get(name);
+  const meta = anim.meta.get(name) || {};
+  const dir = meta.dir || "anim_pc";          // PC 导出的 41 条在 anim_pc/，手机包里挖出来的在 anim_dev/
+  const j = await (await fetch(`./${dir}/${name}.json?cb=${Date.now()}`)).json();
+  const c = {
+    name, label: j.clip || name, bones: j.bones, index: new Map(j.bones.map((n, i) => [n, i])),
+    times: b64ToF32(j.times), duration: j.duration, frames: j.data.map(b64ToF32),
+    driven: j.driven, k: 0,
+  };
+  anim.clips.set(name, c);
+  return c;
+}
+
+function keyAt(c, t) {
+  const ts = c.times, n = ts.length;
+  if (n < 2) return [0, 0];
+  const tt = Math.max(0, Math.min(c.duration, t));
+  let k = c.k;
+  if (k > n - 2) k = n - 2;
+  while (k > 0 && tt < ts[k]) k--;
+  while (k < n - 2 && tt >= ts[k + 1]) k++;
+  c.k = k;
+  const u = ts[k + 1] > ts[k] ? (tt - ts[k]) / (ts[k + 1] - ts[k]) : 0;
+  return [k, Math.min(1, Math.max(0, u))];
+}
+
+const _ap = new THREE.Vector3(), _aq = new THREE.Quaternion(), _as = new THREE.Vector3();
+const _bp = new THREE.Vector3(), _bq = new THREE.Quaternion(), _bs = new THREE.Vector3();
+const _tp = new THREE.Vector3(), _tq = new THREE.Quaternion(), _ts = new THREE.Vector3();
+const _op = new THREE.Vector3(), _oq = new THREE.Quaternion(), _os = new THREE.Vector3();
+const _rp = new THREE.Vector3(), _rq = new THREE.Quaternion(), _rs = new THREE.Vector3();
+const _curOff = new THREE.Vector3(), _prevOff = new THREE.Vector3();
+const _rootShift = new THREE.Vector3(), _baseP = new THREE.Vector3(), _dvec = new THREE.Vector3();
+const _rs2 = new THREE.Vector3(), _rq2 = new THREE.Quaternion();
+/* 被压回绑定姿势的骨（布料/挂点/面部微骨）不能真的钉死在世界坐标里，否则身体走动时
+   它们原地不动：男装 111_mhdg 的相机吊坠就是这么"走路时不动"的。用根骨（bip001）的
+   世界增量 _rootDelta = M_root_now @ M_root_bind⁻¹ 把绑定姿势整体带上。 */
+const _rootNow = new THREE.Matrix4(), _rootDelta = new THREE.Matrix4();
+const _pinM = new THREE.Matrix4(), _pinP = new THREE.Vector3(), _pinQ = new THREE.Quaternion(), _pinS = new THREE.Vector3();
+
+/* 不少片段带根位移（游戏里靠动画把角色往前推），网页里不能让它走出视野：
+   取骨盆骨 bip001 的水平位移（X/Z），整副骨架减掉，竖直方向保留（走路的上下起伏）。
+   Y-up：Y 是身高方向。 */
+function rootOffset(c, k, u, out) {
+  const i = c.index.get("bip001");
+  out.set(0, 0, 0);
+  if (i === undefined) return out;
+  readTRS(c, i, k, u, _rp, _rq, _rs);
+  const o = i * 10, f0 = c.frames[0];
+  out.set(_rp.x - f0[o], 0, _rp.z - f0[o + 2]);
+  return out;
+}
+
+function readTRS(c, i, k, u, P, Q, S) {
+  const a = c.frames[k], b = c.frames[k + 1] || a, o = i * 10;
+  P.set(a[o], a[o + 1], a[o + 2]);
+  Q.set(a[o + 3], a[o + 4], a[o + 5], a[o + 6]);
+  S.set(a[o + 7], a[o + 8], a[o + 9]);
+  if (b !== a && u > 0) {
+    P.lerp(_tp.set(b[o], b[o + 1], b[o + 2]), u);
+    Q.slerp(_tq.set(b[o + 3], b[o + 4], b[o + 5], b[o + 6]), u);
+    S.lerp(_ts.set(b[o + 7], b[o + 8], b[o + 9]), u);
+  }
+}
+
+function paintPose() {
+  const cur = anim.cur;
+  if (!cur || !anim.boneList.length) return;
+  safeHits.prop = safeHits.cloth = safeHits.keep = 0;
+  const [k, u] = keyAt(cur, anim.t);
+  const prev = anim.prev, w = anim.fade;
+  let pk = 0, pu = 0;
+  if (prev) [pk, pu] = keyAt(prev, anim.prevT);
+  rootOffset(cur, k, u, _curOff);
+  if (prev) rootOffset(prev, pk, pu, _prevOff);
+  // 根骨相对绑定的位移：布料/挂点骨用它当基座，跟随身体而不是钉在原点
+  _rootShift.set(0, 0, 0);
+  _rootDelta.identity();
+  if (SAFE_ON) {
+    const ri = cur.index.get("bip001");
+    const rootBone = (anim.bonesByName.get("bip001") || [])[0];
+    const rb = rootBone ? anim.bind.get(rootBone) : null;
+    if (ri !== undefined && rb) {
+      readTRS(cur, ri, k, u, _rs2, _rq2, _ap);
+      _rootShift.copy(_rs2).sub(_curOff).sub(rb.p);
+      // 世界增量（含旋转）：pinned 骨整体乘上去，走动/转身才跟着一起走
+      _rs2.sub(_curOff);
+      if (prev && w < 1) {
+        const pid = prev.index.get("bip001");
+        if (pid !== undefined) {
+          readTRS(prev, pid, pk, pu, _pinP, _pinQ, _pinS);
+          _pinP.sub(_prevOff);
+          _rs2.lerp(_pinP, w); _rq2.slerp(_pinQ, w);
+        }
+      }
+      _rootNow.compose(_rs2, _rq2, rb.s);
+      if (anim.rootInvSrc !== rb) { anim.rootInvSrc = rb; anim.rootInv = rb.m.clone().invert(); }
+      _rootDelta.copy(_rootNow).multiply(anim.rootInv);
+    }
+  }
+  for (const name of anim.boneList) {
+    const ci = cur.index.get(name);
+    const pi = prev ? prev.index.get(name) : undefined;
+    const arr = anim.bonesByName.get(name), bd0 = anim.bind.get(arr[0]);
+    /* 同名骨可能被多份 GLB 各带一根：身体骨架里常带着衣服的布料骨，而且绑定位置和衣服自己那根差很远
+       （男装 111_mhdg 的 bone_m_scarf01_01：衣服 x≈-0.1 / 身体 x≈+9.9）。所以凡是「这段动画没驱动」的骨，
+       一律按它**自己**的绑定姿势写回，不能拿 arr[0] 的绑定去顶所有副本 —— 那会把衣服的围巾骨顶到 9.9，
+       100% 权重挂在这根骨上的顶点就被拽出 10 个单位，成了胸口那条越向右越尖的细刀片。 */
+    let perBoneBind = ci === undefined;
+    if (ci !== undefined) { readTRS(cur, ci, k, u, _ap, _aq, _as); _ap.sub(_curOff); }
+    else if (bd0) { _ap.copy(bd0.p); _aq.copy(bd0.q); _as.copy(bd0.s); }
+    else continue;
+    if (prev && w < 1) {
+      if (pi !== undefined) { readTRS(prev, pi, pk, pu, _bp, _bq, _bs); _bp.sub(_prevOff); }
+      else if (bd0) { _bp.copy(bd0.p); _bq.copy(bd0.q); _bs.copy(bd0.s); }
+      else { _bp.copy(_ap); _bq.copy(_aq); _bs.copy(_as); }
+      _op.copy(_bp).lerp(_ap, w);
+      _oq.copy(_bq).slerp(_aq, w);
+      _os.copy(_bs).lerp(_as, w);
+    } else {
+      _op.copy(_ap); _oq.copy(_aq); _os.copy(_as);
+    }
+    if (DAMP > 0 && bd0) {
+      const k2 = anim.kind.get(name);
+      if (k2 === "cloth" || k2 === "prop") {
+        if (CLOTH_ROT && k2 === "cloth") {
+          _op.copy(bd0.p); _os.copy(bd0.s);
+          if (CLOTH_TURN < 1) _oq.slerp(bd0.q, 1 - CLOTH_TURN);
+        } else {
+          _op.lerp(bd0.p, DAMP); _oq.slerp(bd0.q, DAMP); _os.lerp(bd0.s, DAMP);
+        }
+      }
+    }
+    if (CLOTH_CLAMP && bd0 && !(SAFE_ON && SAFE_CLOTH === 0)) {
+      if (anim.kind.get(name) === "cloth") _op.copy(bd0.p);
+    }
+    if (SAFE_ON && bd0) {
+      const kind = anim.kind.get(name);
+      if (kind === "prop") {
+        // 挂点骨（biped / bip001_prop*）：动画里的位移是别的预制体的残留，直接用绑定姿势
+        perBoneBind = true; _op.copy(bd0.p); _oq.copy(bd0.q); _os.copy(bd0.s);
+        safeHits.prop++;
+      } else if (kind === "face") {
+        // 面部微骨：只保留旋转，位置/缩放退回绑定姿势（否则眉毛被拽成长刀片）
+        perBoneBind = true; _op.copy(bd0.p); _os.copy(bd0.s);
+      } else if (kind === "cloth") {
+        // 布料骨（裙摆 / 披风 / 围巾 / 领巾 / 帽饰链）：这批 clip 的布片轨是按「哪件衣服的骨架长度」烘的
+        // 并不统一。男装 111_mhdg 的胸口细刀片就是这么来的：`bone_m_scarf01_01` 的轨把骨平移到了
+        // x≈+9.9（绑定位置是 x≈-0.10），而那条围巾的 830 个顶点里有一批 100% 权重挂在这根骨上，
+        // 于是被拽出 10 个单位、在屏幕上成了一条越走越细的横带。处理：整根退回绑定姿势（保留根骨起伏），
+        // 布片保持自己的静态造型、跟着身体一起平移。?safeCloth=1 可切回「跟随动画」。
+        if (SAFE_CLOTH === 0) {
+          perBoneBind = true; _op.copy(bd0.p); _oq.copy(bd0.q); _os.copy(bd0.s); safeHits.cloth++;
+        }
+      }
+    }
+    for (const b of arr) {
+      const bd = perBoneBind ? (anim.bind.get(b) || bd0) : null;
+      if (bd) {
+        // 绑定姿势 + 根骨世界增量：既不跟着离谱轨飞出去，也不会走动时原地不动
+        _pinM.copy(_rootDelta).multiply(bd.m);
+        _pinM.decompose(_pinP, _pinQ, _pinS);
+        b.matrix.compose(_pinP, _pinQ, _pinS);
+      } else b.matrix.compose(_op, _oq, _os);
+      b.matrixWorldNeedsUpdate = true;
+    }
+  }
+  // 裁发平面要跟着头骨走：每帧把 head 的世界矩阵逆矩阵喂给头发材质
+  if (HAIR_CUT.on.value > 0.5) {
+    const headBone = findRigBone(ACC_BONE.hat) || findRigBone(["bip001 head"]);
+    if (headBone) {
+      headBone.updateWorldMatrix(true, false);
+      HAIR_CUT.inv.value.copy(headBone.matrixWorld).invert();
+    }
+  }
+  if (PARAMS.get("dbg")) {
+    const h = document.getElementById("hud");
+    if (h) h.textContent = `safe=${SAFE_ON ? 1 : 0} R=${SAFE_R} deg=${SAFE_DEG} bones=${anim.boneList.length} prop=${safeHits.prop} cloth=${safeHits.cloth} keep=${safeHits.keep}`;
+  }
+}
+
+async function playClip(name, opt = {}) {
+  const c = await getClip(name).catch(e => { err(`动作 ${name}: ${e.message || e}`); return null; });
+  if (!c) return;
+  rebuildBones();
+  if (anim.cur && anim.cur.name === c.name && opt.restart !== false) {
+    anim.t = 0; anim.fade = 1; anim.prev = null;
+  } else {
+    anim.prev = anim.cur; anim.prevT = anim.t;
+    anim.cur = c; anim.t = 0;
+    anim.fade = anim.prev ? 0 : 1;
+  }
+  const m = anim.meta.get(name) || {};
+  anim.loop = m.loop !== undefined ? !!m.loop : true;
+  anim.playing = true;
+  if ((m.group || "") === "idle") anim.lastIdle = name;
+  if (m.group && m.group !== curAnimGroup) curAnimGroup = m.group;
+  fillClipSelect();
+  const sel = document.getElementById("animclip");
+  if (sel && m.group) sel.value = name;
+  updateAnimUI(name);
+  paintPose();
+  refreshSlots();
+}
+
+function stopAnim() {
+  anim.cur = null; anim.prev = null; anim.t = 0; anim.playing = false;
+  for (const arr of anim.bonesByName.values()) for (const b of arr) {
+    const bd = anim.bind.get(b);
+    if (bd) { b.matrix.copy(bd.m); b.matrixWorldNeedsUpdate = true; }
+  }
+  scene.updateMatrixWorld(true);
+  updateAnimUI(null);
+}
+
+function tickAnim(dt) {
+  if (!anim.cur) return;
+  if (anim.playing) {
+    anim.t += dt * anim.speed;
+    if (anim.t >= anim.cur.duration) {
+      if (anim.loop) {
+        anim.t = anim.cur.duration > 0 ? anim.t % anim.cur.duration : 0;
+      } else {
+        anim.t = anim.cur.duration; anim.playing = false;
+        const m = anim.meta.get(anim.cur.name) || {};
+        if ((m.group || "") !== "idle") {
+          playClip(anim.lastIdle || "idle", { restart: true });
+          return;
+        }
+        updateAnimUI(anim.cur.name);
+      }
+    }
+  }
+  if (anim.prev && anim.fade < 1) {
+    anim.fade = Math.min(1, anim.fade + dt / FADE);
+    anim.prevT += dt * anim.speed;
+    if (anim.fade >= 1) anim.prev = null;
+  }
+  paintPose();
+}
+
+/* 换装后：重算骨表并把当前动作立刻落到新部件上 */
+function syncAnim() {
+  rebuildBones();
+  if (anim.cur) paintPose();
+}
+
+function updateAnimUI(name) {
+  const m = name ? anim.meta.get(name) : null;
+  const now = document.getElementById("animnow");
+  if (now) now.textContent = m ? `${m.zh} · ${m.duration}s${anim.loop ? " · 循环" : ""}` : "未播放";
+  const pl = document.getElementById("animplay");
+  if (pl) pl.textContent = anim.playing ? "暂停" : "播放";
+  const el = document.getElementById("poseline");
+  if (el) el.textContent = m ? `${m.zh} ${anim.t.toFixed(1)}/${m.duration}s` : "";
+}
+
+function animSexOk(c) {
+  if (!curAnimSex) return true;
+  const g = c.gender || "unknown";
+  // 只按明确标出来的分：库里判不出性别的（老片段/道具骨架）一律收在「全部」里
+  return g === curAnimSex;
+}
+
+function refreshAnimTabLabels() {
+  for (const g of anim.groups) {
+    const n = [...anim.meta.values()].filter(c => c.group === g.id && animSexOk(c)).length;
+    const b = document.querySelector(`#animtabs button[data-g="${g.id}"]`);
+    if (b) b.textContent = `${g.label} ${n}`;
+  }
+}
+
+function fillClipSelect() {
+  document.querySelectorAll("#animtabs button").forEach(b => b.classList.toggle("on", b.dataset.g === curAnimGroup));
+  document.querySelectorAll("#animsex button").forEach(b => b.classList.toggle("on", (b.dataset.s || "") === curAnimSex));
+  const SEL = { female: "女", male: "男" };
+  const sel = document.getElementById("animclip");
+  const list = [...anim.meta.values()].filter(c => c.group === curAnimGroup && animSexOk(c));
+  sel.innerHTML = list.map(c => {
+    const tag = SEL[c.gender] ? `[${SEL[c.gender]}] ` : "";
+    return `<option value="${c.name}">${tag}${c.zh} · ${c.duration}s</option>`;
+  }).join("");
+  sel.onchange = () => playClip(sel.value);
+  if (anim.cur && list.some(c => c.name === anim.cur.name)) sel.value = anim.cur.name;
+}
+
+async function initAnimUI() {
+  /* 两套清单：anim_pc（PC 客户端 41 条，已逐条视觉验收）与 anim_dev（手机安装数据里
+     可读但 PC 版没有的片段）。同名以 PC 版为准，dev 清单已在前置脚本里去重。 */
+  const load = async p => {
+    try { return await (await fetch(`${p}?cb=${Date.now()}`)).json(); }
+    catch (e) { return null; }
+  };
+  const idxs = [await load("./anim_pc/index.json"), await load("./anim_dev/index.json")].filter(Boolean);
+  anim.groups = [];
+  for (const idx of idxs) {
+    for (const g of idx.groups) {
+      if (!anim.groups.some(x => x.id === g.id)) anim.groups.push({ ...g });
+    }
+    for (const c of idx.clips) if (!anim.meta.has(c.name)) anim.meta.set(c.name, c);
+  }
+  const tabs = document.getElementById("animtabs");
+  tabs.innerHTML = "";
+  for (const g of anim.groups) {
+    const b = document.createElement("button");
+    b.textContent = g.label; b.dataset.g = g.id;
+    b.onclick = () => {
+      curAnimGroup = g.id;
+      fillClipSelect();
+      const first = [...anim.meta.values()].find(c => c.group === g.id);
+      if (first) { document.getElementById("animclip").value = first.name; playClip(first.name); }
+    };
+    tabs.appendChild(b);
+  }
+  refreshAnimTabLabels();
+  fillClipSelect();
+  /* URL/localStorage 带来性别过滤时，当前分组可能在该性别下为空（「男」没有待机/走路），
+     先跳到第一个有片段的组，否则下拉框是空的。 */
+  if (curAnimSex) {
+    const hasClip = gid => [...anim.meta.values()].some(c => c.group === gid && animSexOk(c));
+    if (!hasClip(curAnimGroup)) {
+      const g0 = anim.groups.find(x => hasClip(x.id));
+      if (g0) curAnimGroup = g0.id;
+      refreshAnimTabLabels();
+      fillClipSelect();
+    }
+  }
+  document.getElementById("animsex").onclick = e => {
+    const b = e.target.closest("button");
+    if (!b) return;
+    curAnimSex = b.dataset.s || "";
+    localStorage.setItem("animSex", curAnimSex);
+    const hasClip = gid => [...anim.meta.values()].some(c => c.group === gid && animSexOk(c));
+    if (!hasClip(curAnimGroup)) {
+      const g0 = anim.groups.find(x => hasClip(x.id));
+      if (g0) curAnimGroup = g0.id;
+    }
+    refreshAnimTabLabels();
+    fillClipSelect();
+    const first = [...anim.meta.values()].find(c => c.group === curAnimGroup && animSexOk(c));
+    if (first) playClip(first.name);
+  };
+  document.getElementById("animplay").onclick = () => {
+    if (!anim.cur) {
+      const first = [...anim.meta.values()].find(c => c.group === curAnimGroup);
+      if (first) playClip(first.name);
+      return;
+    }
+    anim.playing = !anim.playing;
+    updateAnimUI(anim.cur.name);
+  };
+  document.getElementById("animstop").onclick = stopAnim;
+}
+
+
+function done() {
+  syncAnim();
+  refreshSlots();
+  document.querySelectorAll(".row").forEach(r => {
+    const on = activeByCat.get(r.dataset.cat)?.key === r.dataset.key;
+    r.classList.toggle("on", on);
+  });
+  frameVisible();
+  renderer.render(scene, camera);
+}
+
+/* ---------------- list ---------------- */
+let curCat = "clothes";
+let query = "", sex = "", lod = "";
+let shown = 150;
+
+function filtered() {
+  return MANIFEST.filter(m => {
+    if (m.role === "eyes") return false;
+    if (m.category !== curCat) return false;
+    if (sex && m.gender !== sex) return false;
+    if (lod && m.lod !== lod) return false;
+    if (query && !(m.key.toLowerCase().includes(query) || (m.zh || "").includes(query))) return false;
+    return true;
+  });
+}
+
+function renderList() {
+  const list = document.getElementById("list");
+  const all = filtered();
+  const slice = all.slice(0, shown);
+  const html = slice.map(m => {
+    const meta = `${m.lod} · ${(m.verts || 0)}v · ${m.texture || "无贴图"}`;
+    const nm = m.zh ? `<b class="zh">${m.zh}</b> ` : "";
+    return `<div class="row" data-cat="${m.category}" data-key="${m.key}">
+      <span class="n">${nm}${m.item_short}</span><span class="m">${meta}</span></div>`;
+  }).join("");
+  list.innerHTML = html + (all.length > shown
+    ? `<button class="more">还有 ${all.length - shown} 件，点此继续</button>` : "");
+  list.querySelectorAll(".row").forEach(r => {
+    r.onclick = () => equip(r.dataset.key);
+    if (activeByCat.get(r.dataset.cat)?.key === r.dataset.key) r.classList.add("on");
+  });
+  const more = list.querySelector(".more");
+  if (more) more.onclick = () => { shown += 150; renderList(); };
+}
+
+function renderTabs() {
+  const counts = {};
+  for (const m of MANIFEST) {
+    if (m.role === "eyes") continue;
+    counts[m.category] = (counts[m.category] || 0) + 1;
+  }
+  const order = ["body", "clothes", "hair", "hat", "earring", "glasses", "scarf", "bag", "brooch", "tail", "female_157_rxxy"];
+  const tabs = document.getElementById("tabs");
+  tabs.innerHTML = "";
+  for (const c of order) {
+    if (!counts[c]) continue;
+    const b = document.createElement("button");
+    b.textContent = `${CAT_LABEL[c] || c} ${counts[c]}`;
+    b.onclick = () => {
+      curCat = c; shown = 150;
+      document.querySelectorAll("#tabs button").forEach(x => x.classList.remove("on"));
+      b.classList.add("on");
+      renderList(); renderer.render(scene, camera);
+    };
+    if (c === curCat) b.classList.add("on");
+    tabs.appendChild(b);
+  }
+}
+
+document.getElementById("q").oninput = (ev) => { query = ev.target.value.trim().toLowerCase(); shown = 150; renderList(); };
+document.getElementById("sex").onchange = (ev) => { sex = ev.target.value; shown = 150; renderList(); };
+document.getElementById("lod").onchange = (ev) => { lod = ev.target.value; shown = 150; renderList(); };
+(() => {
+  const sel = document.getElementById("tone");
+  sel.innerHTML = Array.from({ length: 8 }, (_, i) =>
+    `<option value="${i + 1}">肤色 ${i + 1}${i === 0 ? "（最白）" : i === 7 ? "（最深）" : ""}</option>`).join("");
+  sel.value = String(tone);
+  sel.onchange = (ev) => { tone = parseInt(ev.target.value, 10); applyTone(); done(); };
+})();
+
+addEventListener("resize", () => {
+  camera.aspect = view.clientWidth / view.clientHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(view.clientWidth, view.clientHeight);
+});
+let lastT = performance.now(), uiClock = 0;
+renderer.setAnimationLoop(() => {
+  const now = performance.now();
+  const dt = Math.min(0.1, (now - lastT) / 1000);
+  lastT = now;
+  controls.update();
+  try { tickAnim(dt); } catch (e) {
+    if (!window.__animErr) { window.__animErr = String(e && e.stack || e); err(`动作播放异常：${e && e.message || e}`); }
+  }
+  uiClock += dt;
+  if (uiClock > 0.25 && anim.cur) {
+    uiClock = 0;
+    const m = anim.meta.get(anim.cur.name), el = document.getElementById("poseline");
+    if (el) el.textContent = `${m ? m.zh : anim.cur.name} ${anim.t.toFixed(1)}/${anim.cur.duration.toFixed(1)}s`
+      + `${anim.playing ? "" : "（暂停）"}`;
+  }
+  renderer.render(scene, camera);
+});
+
+/* ---------------- boot ---------------- */
+const data = await (await fetch(`./models_pc/manifest_all.json?cb=${Date.now()}`)).json();
+entries = data.items;
+if (data.meta && data.meta.tone_ratios) toneRatios = data.meta.tone_ratios;
+try {
+  BODY_PARTS = await (await fetch(`./models_pc/body_parts.json?cb=${Date.now()}`)).json();
+} catch (e2) {
+  err(`body_parts.json 读取失败，裸皮按骨骼覆盖兜底：${e2}`);
+}
+MANIFEST = Object.entries(entries)
+  .filter(([k, v]) => v && v.glb && !v.error)
+  .map(([k, v]) => ({ key: k, category: v.category, gender: v.gender, lod: v.lod,
+                      verts: v.verts, faces: v.faces, texture: v.texture,
+                      zh: v.zh || "", zh_all: v.zh_all || null,
+                      item_short: v.item_short || k, role: v.role }));
+document.getElementById("loading").remove();
+const cntAll = Object.keys(entries).length;
+const cntSkin = Object.values(entries).filter(v => v.role === "skin").length;
+const cntEyes = Object.values(entries).filter(v => v.role === "eyes").length;
+document.getElementById("sub").textContent =
+  `${cntAll} 个 GLB（${cntAll - cntSkin - cntEyes} 件装备/脸 + ${cntSkin} 件裸皮 + ${cntEyes} 个眼球壳）· 本机离线`;
+renderTabs(); renderList();
+window.__entries = entries; window.__equip = equip; window.__manifest = MANIFEST; window.__skin = skinObj;
+window.__setTone = (n) => { tone = Math.max(1, Math.min(8, n)); document.getElementById("tone").value = String(tone); applyTone(); done(); };
+window.__toneState = () => toneState;
+
+// default look: one female face (with separate eyes) + default outfit pieces
+const defaults = [
+  "female_body_28__low",
+  "female_clothes_100_zmsyxiuzi__high",
+  "female_hair_00_wflh__low",
+];
+if (PARAMS.get("edit") === "1") initBroochEditor();
+for (const key of (PARAMS.get("pick") || defaults.join(",")).split(",")) {
+  try { await equip(key.trim()); } catch (e) { err(`${key}: ${e.message || e}`); }
+}
+for (const c of (PARAMS.get("hide") || "").split(",")) {
+  if (!c) continue;
+  const act = activeByCat.get(c);
+  if (act) { if (act.obj.parent) act.obj.parent.remove(act.obj); activeByCat.delete(c); }
+}
+done();
+await initAnimUI();
+const wantAnim = PARAMS.get("anim");
+if (wantAnim === "0" || wantAnim === "off") {
+  // 不动
+} else if (wantAnim) {
+  await playClip(wantAnim);
+} else {
+  // 默认站在待机呼吸里；如果当前性别过滤下这一组没有片段（「男」没有待机/走路），退到该性别的第一条
+  const first = [...anim.meta.values()].find(c => c.group === curAnimGroup && animSexOk(c))
+             || [...anim.meta.values()].find(c => animSexOk(c));
+  if (first) await playClip(first.name);
+}
+window.__anim = anim;
+window.__dbg = { scene, camera, renderer, THREE, activeByCat };   // 供调试/自动化做几何排查
+
+/* 浏览器自动化的 bu.js 跑在隔离世界，拿不到页面 JS 变量；用 DOM 事件把射线拾取交给页面自己跑，
+   结果写回 dataset.ray。用法（隔离世界）：document.dispatchEvent(new CustomEvent("hpma:ray", {detail:{u:0.5,v:0.33}})) */
+document.addEventListener("hpma:ray", ev => {
+  const d = ev.detail || {};
+  try {
+    const rc = new THREE.Raycaster();
+    rc.setFromCamera(new THREE.Vector2(d.u * 2 - 1, 1 - d.v * 2), camera);
+    const hits = rc.intersectObject(scene, true);
+    if (!hits.length) { document.body.dataset.ray = "no-hit"; return; }
+    const h = hits[0], o = h.object, geo = o.geometry;
+    const rec = { obj: o.name || (o.parent && o.parent.name) || "?", face: h.faceIndex, dist: +h.distance.toFixed(3) };
+    if (geo && geo.getAttribute && geo.getAttribute("skinIndex") && o.skeleton) {
+      const si = geo.getAttribute("skinIndex"), sw = geo.getAttribute("skinWeight"), pos = geo.getAttribute("position");
+      const bones = o.skeleton.bones.map(x => x.name);
+      const idx = geo.index ? geo.index.array : null;
+      const tri = [0, 1, 2].map(k => idx ? idx[h.faceIndex * 3 + k] : h.faceIndex * 3 + k);
+      rec.vs = tri.map(i => {
+        const w = [];
+        for (let k = 0; k < 4; k++) {
+          const wt = sw.getComponent(i, k);
+          if (wt > 0.001) w.push([bones[si.getComponent(i, k)], +wt.toFixed(2)]);
+        }
+        return { i, p: [+pos.getX(i).toFixed(2), +pos.getY(i).toFixed(2), +pos.getZ(i).toFixed(2)], w };
+      });
+    }
+    document.body.dataset.ray = JSON.stringify(rec);
+  } catch (e) { document.body.dataset.ray = "err:" + e.message; }
+});
+
+/* 细长三角形扫描：把（已蒙皮的）三角面投影到屏幕，找出屏幕空间被拉成细长条的面。
+   用法：document.dispatchEvent(new CustomEvent("hpma:scan", {detail:{cat:"clothes", minLen:40}})) */
+document.addEventListener("hpma:scan", ev => {
+  const d = ev.detail || {};
+  try {
+    const list = [];
+    const v = new THREE.Vector3();
+    const skinnedPos = (mesh, i, out) => {
+      out.fromBufferAttribute(mesh.geometry.attributes.position, i);
+      if (mesh.isSkinnedMesh) {
+        if (typeof mesh.getVertexPosition === "function") return mesh.getVertexPosition(i, out);
+        return mesh.applyBoneTransform(i, out);
+      }
+      return out;
+    };
+    const visit = (o) => {
+      if (o.isMesh && (!d.cat || (o.name || "").includes(d.cat))) {
+        const g = o.geometry, idx = g.index ? g.index.array : null, n = idx ? idx.length : g.attributes.position.count;
+        for (let t = 0; t + 2 < n; t += 3) {
+          const a = skinnedPos(o, idx ? idx[t] : t, new THREE.Vector3()).clone().project(camera);
+          const b = skinnedPos(o, idx ? idx[t + 1] : t + 1, new THREE.Vector3()).clone().project(camera);
+          const c = skinnedPos(o, idx ? idx[t + 2] : t + 2, new THREE.Vector3()).clone().project(camera);
+          const toPx = (p) => [ (p.x * 0.5 + 0.5) * renderer.domElement.clientWidth, (-p.y * 0.5 + 0.5) * renderer.domElement.clientHeight ];
+          const A = toPx(a), B = toPx(b), C = toPx(c);
+          const w = Math.max(A[0], B[0], C[0]) - Math.min(A[0], B[0], C[0]);
+          const h = Math.max(A[1], B[1], C[1]) - Math.min(A[1], B[1], C[1]);
+          const len = Math.max(Math.hypot(A[0]-B[0],A[1]-B[1]), Math.hypot(B[0]-C[0],B[1]-C[1]), Math.hypot(C[0]-A[0],C[1]-A[1]));
+          if (len >= (d.minLen || 40) && (d.any || w < 8 || h < 8)) {
+            const triIdx = [idx ? idx[t] : t, idx ? idx[t+1] : t+1, idx ? idx[t+2] : t+2];
+            const bones = o.skeleton ? o.skeleton.bones.map(x => x.name) : [];
+            const si = g.attributes.skinIndex, sw = g.attributes.skinWeight;
+            const vs = triIdx.map(i2 => {
+              const ww = [];
+              if (si) for (let k = 0; k < 4; k++) { const q = sw.getComponent(i2, k); if (q > 0.001) ww.push([bones[si.getComponent(i2, k)], +q.toFixed(2)]); }
+              return { i: i2, p: [+g.attributes.position.getX(i2).toFixed(2), +g.attributes.position.getY(i2).toFixed(2), +g.attributes.position.getZ(i2).toFixed(2)], sk: [+skinnedPos(o, i2, new THREE.Vector3()).x.toFixed(2), +skinnedPos(o, i2, new THREE.Vector3()).y.toFixed(2), +skinnedPos(o, i2, new THREE.Vector3()).z.toFixed(2)], w: ww };
+            });
+            list.push({ obj: o.name, face: t / 3, lenPx: +len.toFixed(1), box: [+Math.min(A[0],B[0],C[0]).toFixed(0), +Math.min(A[1],B[1],C[1]).toFixed(0), +w.toFixed(1), +h.toFixed(1)], vs });
+          }
+        }
+      }
+      o.children.forEach(visit);
+    };
+    scene.children.forEach(visit);
+    list.sort((p, q) => q.lenPx - p.lenPx);
+    document.body.dataset.scan = JSON.stringify({ n: list.length, top: list.slice(0, 6) });
+  } catch (e) { document.body.dataset.scan = "err:" + e.message + "@" + e.stack.split("\n")[1]; }
+});
+
+/* 骨头状态查询：document.dispatchEvent(new CustomEvent("hpma:bone", {detail:{name:"bone_m_scarf01_01"})) */
+document.addEventListener("hpma:bone", ev => {
+  const nm = (ev.detail || {}).name;
+  try {
+    let skel = null, owner = null;
+    const all = [];
+    scene.traverse(o => {
+      if (o.isSkinnedMesh && o.skeleton) {
+        const b2 = o.skeleton.bones.find(x => x.name === nm);
+        if (b2) all.push({ owner: o.name, t: Array.from(b2.matrix.elements.slice(12, 15)).map(x => +x.toFixed(2)),
+          auto: b2.matrixAutoUpdate, pos: Array.from(b2.position).map(x => +x.toFixed(2)),
+          parent: b2.parent && b2.parent.name, pT: b2.parent ? Array.from(b2.parent.matrixWorld.elements.slice(12, 15)).map(x => +x.toFixed(2)) : null });
+      }
+      if (!skel && o.isSkinnedMesh && o.skeleton && o.skeleton.bones.some(b => b.name === nm)) { skel = o.skeleton; owner = o.name; }
+    });
+    if (!skel) { document.body.dataset.bone = "not-found"; return; }
+    const b = skel.bones.find(x => x.name === nm);
+    const inAnim = !!(anim && anim.bonesByName && anim.bonesByName.has(nm));
+    const animN = anim && anim.boneList ? anim.boneList.length : -1;
+    document.body.dataset.bone = JSON.stringify({
+      owner, inAnim, animBones: animN,
+      owners: all, ppErr: (window.__animErr || "").slice(0, 300),
+      kind: anim.kind ? anim.kind.get(nm) : "?", safe: SAFE_ON, safeCloth: SAFE_CLOTH,
+      hasBind: !!(anim.bind && anim.bonesByName.has(nm) && anim.bind.get(anim.bonesByName.get(nm)[0])),
+      matrix: Array.from(b.matrix.elements).map(x => +x.toFixed(3)),
+      bonesMatched: skel.bones.filter(x => anim.bonesByName && anim.bonesByName.has(x.name)).length,
+      bonesTotal: skel.bones.length,
+    });
+  } catch (e) { document.body.dataset.bone = "err:" + e.message; }
+});
+
+/* 包围盒探针：document.dispatchEvent(new CustomEvent("hpma:bbox"))
+   把当前每件穿戴物的世界包围盒、帽骨挂载关系写回 dataset.bbox，供自动化排查悬浮/穿模。 */
+document.addEventListener("hpma:bbox", () => {
+  try {
+    scene.updateMatrixWorld(true);
+    const out = {};
+    const v = new THREE.Vector3();
+    for (const [cat, a] of activeByCat) {
+      if (!a || !a.obj) continue;
+      const box = new THREE.Box3().setFromObject(a.obj);
+      if (box.isEmpty()) { out[cat] = { key: a.key, empty: true }; continue; }
+      const c = box.getCenter(v).clone();
+      out[cat] = {
+        key: a.key,
+        parent: a.obj.parent ? a.obj.parent.name : "(scene)",
+        pos: Array.from(a.obj.position).map(x => +x.toFixed(3)),
+        min: Array.from(box.min).map(x => +x.toFixed(3)),
+        max: Array.from(box.max).map(x => +x.toFixed(3)),
+        ctr: [+c.x.toFixed(3), +c.y.toFixed(3), +c.z.toFixed(3)],
+      };
+    }
+    const hb = findRigBone(ACC_BONE.hat);
+    if (hb) {
+      hb.getWorldPosition(v);
+      out._headbone = { name: hb.name, world: Array.from(v).map(x => +x.toFixed(3)) };
+    }
+    document.body.dataset.bbox = JSON.stringify(out);
+  } catch (e) { document.body.dataset.bbox = "err:" + e.message; }
+});
+
+/* 帽子校准探针：document.dispatchEvent(new CustomEvent("hpma:hatnudge", {detail:{off:[dx,dy,dz]}}))
+   把当前帽子按世界系偏移重坐一次，数值写回 dataset.hatOff，供自动化迭代标定。 */
+document.addEventListener("hpma:hatnudge", (ev) => {
+  try {
+    const h = activeByCat.get("hat");
+    if (!h || !h.obj) return;
+    const off = (ev.detail && ev.detail.off) || [0, 0, 0];
+    HAT_OFF[h.key] = off;
+    snapHat();
+    document.body.dataset.hatOff = off.join("|");
+  } catch (e) { document.body.dataset.hatOff = "err:" + e.message; }
+});
+// ?seek=<秒>：定格到某一时刻并停住（页面在后台时 rAF 会停，靠这个参数抓指定帧）
+const seekT0 = parseFloat(PARAMS.get("seek") || "");
+if (wantAnim && wantAnim !== "0" && wantAnim !== "off" && isFinite(seekT0) && anim.cur) {
+  anim.prev = null; anim.fade = 1;
+  anim.t = Math.max(0, Math.min(anim.cur.duration, seekT0));
+  anim.playing = false;
+  paintPose(); renderer.render(scene, camera);
+}
+// ?dump=1：把当前定格帧的每根骨的矩阵打到控制台，方便跟离线复现逐骨对齐
+if (PARAMS.get("dump")) {
+  const rows = [];
+  const seen = new Set();
+  scene.traverse(o => {
+    if (o.isBone && !seen.has(o.name)) { seen.add(o.name); rows.push([o.name, Array.from(o.matrix.elements)]); }
+  });
+  console.log("DUMP" + JSON.stringify(rows));
+  // 控制台拿不到时（隔离世界），把同一份数据塞进 #err，用页面文本读出来
+  const e0 = document.getElementById("err");
+  if (e0) e0.textContent = "DUMP" + JSON.stringify(rows);
+}
+window.__play = playClip;
+window.__stopAnim = stopAnim;
+window.__clips = () => [...anim.meta.values()];
+// 调试：页面在后台时 rAF 会停，这两个钩子可以手动推进 / 定格到某一时刻截图
+window.__tick = (dt = 1 / 60, n = 1) => {
+  for (let i = 0; i < n; i++) tickAnim(dt);
+  return { t: anim.t, cur: anim.cur && anim.cur.name, playing: anim.playing, loop: anim.loop };
+};
+window.__seek = async (name, t) => {
+  await playClip(name);
+  anim.prev = null; anim.fade = 1;
+  anim.t = Math.max(0, Math.min(anim.cur.duration, t));
+  paintPose(); renderer.render(scene, camera);
+  return { cur: anim.cur.name, t: anim.t, dur: anim.cur.duration };
+};
+</script>
+</body>
+</html>

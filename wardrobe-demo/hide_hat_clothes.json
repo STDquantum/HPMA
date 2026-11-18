@@ -1,0 +1,19 @@
+{
+ "note": "role_dress 表里 hide_hat=true 的衣服：穿这些时把帽子隐藏（PC 原配置）",
+ "items": [
+  "male_clothes_182_wyds_02",
+  "male_clothes_182_wyds_mao",
+  "female_clothes_182_wyds_02",
+  "female_clothes_182_wyds_mao"
+ ],
+ "outfit_ids": [
+  53660,
+  53661,
+  53662,
+  53663,
+  5366001,
+  5366002,
+  5366101,
+  5366102
+ ]
+}

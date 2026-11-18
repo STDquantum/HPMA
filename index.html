@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HPMA 资源站 · 入口</title>
+<meta name="description" content="《哈利波特：魔法觉醒》服装图鉴、卡牌收集与 3D 衣柜查看器。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23146e68'/%3E%3Ctext x='32' y='45' font-size='34' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1d2b30; --muted:#5f7278; --line:#dbe4e7; --paper:#f2f6f6; --card:#ffffff;
+  --teal:#146e68; --teal-2:#1a8b80; --blue:#215f8f; --gold:#a37a2e;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 600px at 50% -10%,#e6f2f1,#f2f6f6 55%) fixed;color:var(--ink);
+  font:15px/1.6 "Segoe UI","Microsoft YaHei",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:56px 22px 40px}
+.head{text-align:center;margin-bottom:34px}
+.title{font-size:clamp(26px,4.4vw,42px);font-weight:800;letter-spacing:.5px;margin:0}
+.title span{background:linear-gradient(100deg,var(--teal),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{margin:12px auto 0;max-width:640px;color:var(--muted);font-size:15px}
+.badge{display:inline-block;margin-top:16px;padding:5px 13px;border-radius:999px;border:1px solid var(--line);
+  background:#fff;color:var(--muted);font-size:12.5px;letter-spacing:.3px}
+
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.entry{
+  position:relative;display:block;text-decoration:none;color:inherit;background:var(--card);
+  border:1px solid var(--line);border-radius:20px;padding:26px 24px 22px;min-height:196px;
+  box-shadow:0 2px 10px #1d2b3009,0 18px 34px -22px #1d2b3033;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+  overflow:hidden;
+}
+.entry:hover,.entry:focus-visible{transform:translateY(-4px);border-color:#bcd2d6;
+  box-shadow:0 4px 14px #1d2b3010,0 26px 44px -24px #1d2b3050}
+.entry:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.entry::after{content:"";position:absolute;inset:auto -40px -70px auto;width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,#eaf4f3,transparent 70%);pointer-events:none}
+.emblem{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;font-size:24px;font-weight:800;color:#fff;
+  background:linear-gradient(140deg,var(--teal-2),var(--teal))}
+.emblem.b{background:linear-gradient(140deg,#2b78ad,var(--blue))}
+.emblem.g{background:linear-gradient(140deg,#c29a45,var(--gold))}
+.entry h2{margin:18px 0 6px;font-size:20px;display:flex;align-items:center;gap:8px}
+.arrow{margin-left:auto;color:#9db0b4;font-weight:600;transition:transform .18s ease,color .18s ease}
+.entry:hover .arrow{transform:translateX(4px);color:var(--teal)}
+.entry p{margin:0;color:var(--muted);font-size:14px;min-height:44px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.chip{font-size:12.5px;color:#38505a;background:#f1f5f6;border:1px solid #e3eaec;border-radius:999px;padding:3px 10px}
+.foot{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;
+  display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:center;text-align:center}
+.foot a{color:var(--teal);text-decoration:none;border-bottom:1px solid #cfe0df}
+.foot a:hover{border-color:var(--teal)}
+@media(max-width:520px){.wrap{padding:36px 16px 28px}.entry{padding:22px 20px 18px;min-height:0}}
+@media(prefers-reduced-motion:reduce){.entry{transition:none}.entry:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="head">
+    <h1 class="title"><span>HPMA 资源站</span></h1>
+    <p class="sub">《哈利波特：魔法觉醒》服装、卡牌与 3D 模型的整理成果。下面三个入口，点进去即可。</p>
+    <span class="badge">朋友分享用 · 手机浏览器也能开</span>
+  </header>
+
+  <main class="grid">
+    <a class="entry" href="./%E8%A1%A3%E6%9C%8D%E6%B1%87%E6%80%BB/index.html">
+      <div class="emblem">衣</div>
+      <h2>服装图鉴 <span class="arrow">→</span></h2>
+      <p>按类型筛选、按上线日期排序，每套都带多张立绘。</p>
+      <div class="chips"><span class="chip">205 套服装</span><span class="chip">搜索 + 类型筛选</span></div>
+    </a>
+
+    <a class="entry" href="./%E5%8D%A1%E7%89%8C%E7%BD%91%E9%A1%B5%E6%95%B4%E7%90%86/%E5%8D%A1%E7%89%8C%E5%90%88%E6%88%90.html">
+      <div class="emblem b">牌</div>
+      <h2>卡牌收集 <span class="arrow">→</span></h2>
+      <p>按稀有度归类，卡面、卡框与魔力值叠加合成。</p>
+      <div class="chips"><span class="chip">141 张卡牌</span><span class="chip">卡面合成预览</span></div>
+    </a>
+
+    <a class="entry" href="./wardrobe-demo/gallery_pc.html">
+      <div class="emblem g">镜</div>
+      <h2>衣柜查看器 <span class="arrow">→</span></h2>
+      <p>3D 换装预览，脸、发型、衣服、配饰自由组合，还能播动画。</p>
+      <div class="chips"><span class="chip">69 个模型</span><span class="chip">324 段动画</span><span class="chip">8 档肤色</span></div>
+    </a>
+  </main>
+
+  <footer class="foot">
+    <span>仓库：<a href="https://github.com/STDquantum/HPMA">STDquantum/HPMA</a></span>
+    <span>本地查看：进各目录双击对应的 bat，或跑 <code>wardrobe-demo\启动.bat</code></span>
+    <span>资源来自游戏客户端逆向重建，仅供学习研究</span>
+  </footer>
+</div>
+</body>
+</html>

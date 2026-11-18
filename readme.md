@@ -2,6 +2,19 @@
 
 这是《哈利波特：魔法觉醒》相关的图片资源、网页卡牌整理、ADB 自动化和 Frida 调试资料。
 
+## 网页入口
+
+站点首页：<https://stdquantum.github.io/HPMA/>（根目录 `index.html`，三个大按键）
+
+| 入口 | 直接地址 | 内容 |
+|---|---|---|
+| 服装图鉴 | <https://stdquantum.github.io/HPMA/衣服汇总/> | 205 套服装，多立绘、类型筛选、按上线日期排序 |
+| 卡牌收集 | <https://stdquantum.github.io/HPMA/卡牌网页整理/卡牌合成.html> | 141 张卡牌，卡面 + 卡框 + 魔力值合成 |
+| 衣柜查看器 | <https://stdquantum.github.io/HPMA/wardrobe-demo/gallery_pc.html> | 3D 换装，69 个模型、324 段动画、8 档肤色 |
+
+三页都只读同目录的 json/图片，路径全是相对的，所以本地起个服务也能看
+（`wardrobe-demo\启动.bat` 是自带的一个小服务，双击即可）。
+
 ## 目录说明
 
 - 官方下载卡牌：官方卡牌资源的分类图片，包含伙伴卡、召唤卡、咒语卡。图片文件名和资源编号保持原样。
